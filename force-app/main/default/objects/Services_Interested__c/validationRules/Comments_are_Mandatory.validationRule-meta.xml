@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_are_Mandatory</fullName>
+    <active>true</active>
+    <description>If Innovation Services Selected is Others then Comments has to be mandatory</description>
+    <errorConditionFormula>AND(Innovation_Services__r.Name  =  &apos;Others&apos;,  
+     ISBLANK(Comments_Details__c ))</errorConditionFormula>
+    <errorDisplayField>Comments_Details__c</errorDisplayField>
+    <errorMessage>Please enter the Specific Service offered to customer</errorMessage>
+</ValidationRule>
