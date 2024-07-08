@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Updates_Against_Inactive_Accounts</fullName>
+    <active>true</active>
+    <description>#RQ-005399 - Avoid activities against inactive accounts</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+ISPICKVAL(Account.SCV_Status__c, &quot;Inactive&quot;)</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>You cannot create or update a contact that is linked to an inactive account.</errorMessage>
+</ValidationRule>

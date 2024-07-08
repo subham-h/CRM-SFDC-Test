@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deduped_Date__c</fullName>
+    <description>#RQ-002893: Date Time when contact was deduped.
+Note: This field will be automatically populated by informatica once deduplication completed for that contact.</description>
+    <label>Deduped Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

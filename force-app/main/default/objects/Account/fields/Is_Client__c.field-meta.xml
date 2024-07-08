@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Client__c</fullName>
+    <description>RQ-000953. This field can be used to identify if the Account Record type is &apos;Client&apos;.</description>
+    <formula>RecordType.DeveloperName = &apos;Client_Account&apos;</formula>
+    <label>Is Client?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

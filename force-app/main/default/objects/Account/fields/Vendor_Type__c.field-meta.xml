@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Type__c</fullName>
+    <description>#RQ-007439</description>
+    <inlineHelpText>Specify the Vendor Type.</inlineHelpText>
+    <label>Vendor Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Barge</fullName>
+                <default>false</default>
+                <label>Barge</label>
+            </value>
+            <value>
+                <fullName>Chassis</fullName>
+                <default>false</default>
+                <label>Chassis</label>
+            </value>
+            <value>
+                <fullName>Customs House Brokerage (CHB)</fullName>
+                <default>false</default>
+                <label>Customs House Brokerage (CHB)</label>
+            </value>
+            <value>
+                <fullName>Depot</fullName>
+                <default>false</default>
+                <label>Depot</label>
+            </value>
+            <value>
+                <fullName>Equipment Repair</fullName>
+                <default>false</default>
+                <label>Equipment Repair</label>
+            </value>
+            <value>
+                <fullName>LCL Hubs</fullName>
+                <default>false</default>
+                <label>LCL Hubs</label>
+            </value>
+            <value>
+                <fullName>Rail</fullName>
+                <default>false</default>
+                <label>Rail</label>
+            </value>
+            <value>
+                <fullName>Special Provider</fullName>
+                <default>false</default>
+                <label>Special Provider</label>
+            </value>
+            <value>
+                <fullName>Terminal</fullName>
+                <default>false</default>
+                <label>Terminal</label>
+            </value>
+            <value>
+                <fullName>Trucker</fullName>
+                <default>false</default>
+                <label>Trucker</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

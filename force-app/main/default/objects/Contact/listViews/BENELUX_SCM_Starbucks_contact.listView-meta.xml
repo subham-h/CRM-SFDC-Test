@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BENELUX_SCM_Starbucks_contact</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Liner_Brands__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>contains</operation>
+        <value>ayse.cicek@alshaya.com,gmcvitti@starbucks.com,mstojek@starbucks.com,srickard@starbucks.com,creidedw@starbucks.com,Arthur.Hartman@Kuehne-Nagel.com,ichavade@starbucks.com</value>
+    </filters>
+    <label>BENELUX - SCM - Starbucks contact</label>
+</ListView>

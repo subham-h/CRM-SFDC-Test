@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E164_Phone_Format_Other_Phone</fullName>
+    <active>true</active>
+    <description>#RQ-002172: Enforces a simple rule that applies a basic E.164 format check. Note no attempt is made to check if the numbers are actually correct. Restricted to a pilot group of Users who belong to one Profile.
+#RQ-004154-Removed profile restiction</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+NOT( ISBLANK( OtherPhone ) ) &amp;&amp;
+
+/* Check there is a + followed by upto 3 digits, then a space and finally upto 15 digits. */
+NOT( REGEX( OtherPhone, $Label.Regex_Phone ))</errorConditionFormula>
+    <errorDisplayField>OtherPhone</errorDisplayField>
+    <errorMessage>The phone number you entered does not match the required format of a plus sign, country code and the required number of digits, e.g. +1 1231231234 or +44 1234123456. Review the Phone Length SOP document in the &quot;Custom Links&quot; section below. [VR on Contact]</errorMessage>
+</ValidationRule>

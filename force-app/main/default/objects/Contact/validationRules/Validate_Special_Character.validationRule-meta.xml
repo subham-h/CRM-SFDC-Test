@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Special_Character</fullName>
+    <active>true</active>
+    <description>#RQ-004140: Validation rule to align contacts in SFDC with CMD data rules. This is to make sure contacts from SFDC is not fail to sync with CMD after integration (CMD - SFDC)
+#RQ-004398 - Added validation for First Name - English and Last Name - English</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+AND( OR( ISNEW(), ISCHANGED(FirstName), ISCHANGED(LastName), ISCHANGED(Title), ISCHANGED(Department),ISCHANGED(First_Name_English__c),ISCHANGED(Last_Name_English__c)), 
+OR(REGEX( FirstName , &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;), 
+REGEX( LastName , &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;), 
+REGEX(Title, &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;), 
+REGEX( Department , &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;),
+REGEX(First_Name_English__c, &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;),
+REGEX(  Last_Name_English__c , &quot;.*[!@|#&lt;&gt;=?\\_{}~£\\p{Sc}].*&quot;)
+) 
+)</errorConditionFormula>
+    <errorMessage>Special characters &quot;!@|#&lt;&gt;=?_{}~£&quot; are not allowed in Firstname, Lastname, Title, Department, First Name - English and Last Name - English.</errorMessage>
+</ValidationRule>

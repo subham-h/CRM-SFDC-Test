@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SeagolineContacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Country__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Liner_Brands__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Liner_Brand__c</field>
+        <operation>equals</operation>
+        <value>Seago Line</value>
+    </filters>
+    <label>Seagoline Contacts</label>
+    <language>en_US</language>
+</ListView>

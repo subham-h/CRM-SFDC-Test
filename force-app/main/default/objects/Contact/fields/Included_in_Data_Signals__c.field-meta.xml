@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Included_in_Data_Signals__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to indicate that the contact record is included in a Marketing Cloud Data Signals journey (e.g. Abandoned cart) and should be included in the synchronisation process irrespective of the contact’s consent status.</description>
+    <inlineHelpText>Is Data Signal Related to Contact</inlineHelpText>
+    <label>Included in Data Signals</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SCV_Status__c</fullName>
+    <description>&quot;+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration&quot;
+#RQ-000235 - Help text added.
+#RQ-004162 - Changed Field label and help text
+#RQ-004927.</description>
+    <inlineHelpText>Indicates if this customer is active or not as per Customer Master Data definitions</inlineHelpText>
+    <label>Customer Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+                <label>Suspended</label>
+            </value>
+            <value>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+                <label>Inactive</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

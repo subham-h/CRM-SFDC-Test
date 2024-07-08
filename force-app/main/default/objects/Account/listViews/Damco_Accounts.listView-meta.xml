@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Damco_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Customer_Code__c</columns>
+    <columns>Damco_BE_Code__c</columns>
+    <columns>MSL_Account_Owner__c</columns>
+    <columns>Value_Proposition__c</columns>
+    <columns>Vertical__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Damco_BE_Code__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>SCV_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Suspended</value>
+    </filters>
+    <filters>
+        <field>Value_Proposition__c</field>
+        <operation>equals</operation>
+        <value>Advancement,Ambition,Ease,Efficiency,Expertise,Super Saver</value>
+    </filters>
+    <label>Damco Accounts</label>
+</ListView>

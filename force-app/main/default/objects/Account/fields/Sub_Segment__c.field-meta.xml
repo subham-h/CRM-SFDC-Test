@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Segment__c</fullName>
+    <description>RQ-009401</description>
+    <inlineHelpText>Indicates the sub-segment within the Efficiency Value Proposition</inlineHelpText>
+    <label>Sub Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Small Medium Forwarder</fullName>
+                <default>false</default>
+                <label>Small Medium Forwarder</label>
+            </value>
+            <value>
+                <fullName>Local Champion</fullName>
+                <default>false</default>
+                <label>Local Champion</label>
+            </value>
+            <value>
+                <fullName>Global Freight Forwarder</fullName>
+                <default>false</default>
+                <label>Global Freight Forwarder</label>
+            </value>
+            <value>
+                <fullName>Specialised Forwarder</fullName>
+                <default>false</default>
+                <label>Specialised Forwarder</label>
+            </value>
+            <value>
+                <fullName>Digital Innovator</fullName>
+                <default>false</default>
+                <label>Digital Innovator</label>
+            </value>
+            <value>
+                <fullName>BIG BCO specialist</fullName>
+                <default>false</default>
+                <label>BIG BCO specialist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_Length_Validation_Shared_DlngCode</fullName>
+    <active>true</active>
+    <description>#RQ-005256- Telephone country validation rule extention. There are 3 international dialling codes that are shared with many countries,we will only look at the 1st 3 digist after the interntional dialling code and use a vlookup to &quot;Field Validation&quot; object</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c &amp;&amp;
+NOT(RecordType.Name = &quot;Internal Contact&quot;) &amp;&amp;
+OR(
+    (NOT(ISBLANK(Phone)) &amp;&amp;
+        (LEN(Phone) - FIND(&quot; &quot;, REVERSE(Phone)) )
+        &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(Phone , 0, (FIND(&quot; &quot;, Phone )+3)))
+    ),
+    (NOT(ISBLANK(MobilePhone)) &amp;&amp;
+        (LEN(MobilePhone) - FIND(&quot; &quot;, REVERSE(MobilePhone)) )
+        &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(MobilePhone, 0, (FIND(&quot; &quot;, MobilePhone)+3)))
+    ),
+    (NOT(ISBLANK(Fax)) &amp;&amp;
+        (LEN(Fax) - FIND(&quot; &quot;, REVERSE(Fax)) )
+        &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(Fax, 0, (FIND(&quot; &quot;, Fax)+3)))
+    ),
+    (NOT(ISBLANK(OtherPhone)) &amp;&amp;
+        (LEN(OtherPhone) - FIND(&quot; &quot;, REVERSE(OtherPhone)) )
+        &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(OtherPhone, 0, (FIND(&quot; &quot;, OtherPhone)+3)))
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Unique_Email_Address__c</errorDisplayField>
+    <errorMessage>The number you entered in one of the fields &apos;Office Phone&apos;, &apos;Other Phone&apos;, &apos;Mobile&apos; or &apos;Fax&apos; do not match the required length based on the country code you have entered. Please review the Phone Length SOP document in the &quot;Custom Links&quot; section below.</errorMessage>
+</ValidationRule>

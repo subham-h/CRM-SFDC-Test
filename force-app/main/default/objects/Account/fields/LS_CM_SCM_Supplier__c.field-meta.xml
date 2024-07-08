@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LS_CM_SCM_Supplier__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>#SC-391 Supplier for SCM is a manufacturer who makes goods for consignee; when we win contracts with consignee they tell us that they have n number of suppliers in china/vietnam etc. Consignee raises a purchase order to suppliers directly, we only reference to the purchase order in order to move the cargo. So in simple terms, Suppliers are just shippers who makes stuff and hands it over to us for further transport.</description>
+    <inlineHelpText>This flag helps the SCM team know whether the customer is of type Shipper.</inlineHelpText>
+    <label>SCM Supplier</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

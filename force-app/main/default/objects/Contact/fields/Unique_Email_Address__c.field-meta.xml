@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Email_Address__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>#RQ-000606 &amp; #PR-00031_2 :
+On creating of contact, there should exist only unique email address for a single Liner Brand.
+This field consist of concatenation of Liner Brand and Email address to ensure there are no duplicate emails within a Liner Brand. Populated using Workflow.</description>
+    <externalId>false</externalId>
+    <label>*Email</label>
+    <length>120</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Channel__c</fullName>
+    <description>SFSE-10947: This field is used to classify our customers so that Sales can target them with the right offering. It is updated from external data sources.</description>
+    <inlineHelpText>Sales Channel refers to our new sales organization setup and considers how we interact with the account: Key Client/Runway, Integrated Sales, or Direct Transport Sales</inlineHelpText>
+    <label>Sales Channel</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Sales_Channel</valueSetName>
+    </valueSet>
+</CustomField>

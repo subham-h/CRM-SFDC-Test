@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandate_Office_Phone</fullName>
+    <active>true</active>
+    <description>Mandate Office Phone if the Other phone is specified</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+RecordType.DeveloperName = &apos;Customer_Contact&apos; &amp;&amp;
+
+NOT( ISBLANK( OtherPhone ) )&amp;&amp;
+
+ISBLANK( Phone )</errorConditionFormula>
+    <errorDisplayField>OtherPhone</errorDisplayField>
+    <errorMessage>To enter phone number in the Other Phone field you must enter phone number in the Office Phone field.</errorMessage>
+</ValidationRule>

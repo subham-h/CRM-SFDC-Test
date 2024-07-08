@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attractiveness__c</fullName>
+    <label>Attractiveness</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Key Client</fullName>
+                <default>false</default>
+                <label>Key Client</label>
+            </value>
+            <value>
+                <fullName>Booster</fullName>
+                <default>false</default>
+                <label>Booster</label>
+            </value>
+            <value>
+                <fullName>Runway</fullName>
+                <default>false</default>
+                <label>Runway</label>
+            </value>
+            <value>
+                <fullName>A-MCC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A-MCC</label>
+            </value>
+            <value>
+                <fullName>A-MLL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A-MLL</label>
+            </value>
+            <value>
+                <fullName>A-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A-SCL</label>
+            </value>
+            <value>
+                <fullName>A-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A-SEA</label>
+            </value>
+            <value>
+                <fullName>A-SGO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A-SGO</label>
+            </value>
+            <value>
+                <fullName>B-MCC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-MCC</label>
+            </value>
+            <value>
+                <fullName>B-MLL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-MLL</label>
+            </value>
+            <value>
+                <fullName>B-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-MSL</label>
+            </value>
+            <value>
+                <fullName>B-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-SCL</label>
+            </value>
+            <value>
+                <fullName>B-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-SEA</label>
+            </value>
+            <value>
+                <fullName>B-SGO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B-SGO</label>
+            </value>
+            <value>
+                <fullName>Booster-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Booster-MSL</label>
+            </value>
+            <value>
+                <fullName>C-MCC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-MCC</label>
+            </value>
+            <value>
+                <fullName>C-MLL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-MLL</label>
+            </value>
+            <value>
+                <fullName>C-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-MSL</label>
+            </value>
+            <value>
+                <fullName>C-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-SCL</label>
+            </value>
+            <value>
+                <fullName>C-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-SEA</label>
+            </value>
+            <value>
+                <fullName>C-SGO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C-SGO</label>
+            </value>
+            <value>
+                <fullName>Efficiency Key Client-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Efficiency Key Client-MSL</label>
+            </value>
+            <value>
+                <fullName>Extended Runway-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Extended Runway-MSL</label>
+            </value>
+            <value>
+                <fullName>Key - Client</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key - Client</label>
+            </value>
+            <value>
+                <fullName>Key Client-MCC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-MCC</label>
+            </value>
+            <value>
+                <fullName>Key Client-MLL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-MLL</label>
+            </value>
+            <value>
+                <fullName>Key Client-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-MSL</label>
+            </value>
+            <value>
+                <fullName>Key Client-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-SCL</label>
+            </value>
+            <value>
+                <fullName>Key Client-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-SEA</label>
+            </value>
+            <value>
+                <fullName>Key Client-SGO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Key Client-SGO</label>
+            </value>
+            <value>
+                <fullName>Runway-MCC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Runway-MCC</label>
+            </value>
+            <value>
+                <fullName>Runway-MSL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Runway-MSL</label>
+            </value>
+            <value>
+                <fullName>Runway-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Runway-SEA</label>
+            </value>
+            <value>
+                <fullName>Runway-SGO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Runway-SGO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

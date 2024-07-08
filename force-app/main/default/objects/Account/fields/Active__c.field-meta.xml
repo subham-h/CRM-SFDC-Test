@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active__c</fullName>
+    <description>Show True and False sign depending upon the Account Status.
+#RQ-000998 : Formula edited to include condition for Non Shipping account</description>
+    <externalId>false</externalId>
+    <formula>IF(   ISPICKVAL(SCV_Status__c , &apos;Active&apos; ) ||  RecordTypeId ==  $Label.Non_shipping_Party_Account_RecordType_Label  , IMAGE(&quot;/resource/Green_Tick&quot;,&quot;Active&quot;, 13, 13) , IMAGE(&quot;/resource/Red_Cross&quot;,&quot;InActive&quot; , 13, 13) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Displays a visual indicator of whether or not this Account&apos;s Status in SCV. A red cross is &quot;Inactive&quot;, a green tick is &quot;Active&quot;.</inlineHelpText>
+    <label>Active</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

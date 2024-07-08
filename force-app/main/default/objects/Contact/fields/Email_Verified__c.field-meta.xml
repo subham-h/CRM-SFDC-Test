@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Verified__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SFMC-7701-Indicates whether the email verification process has been completed i.e. an email containing a code or verification link has been sent to the address for confirmation</description>
+    <inlineHelpText>Indicates whether the email verification process has been completed i.e. an email containing a code or verification link has been sent to the address for confirmation</inlineHelpText>
+    <label>Email Verified</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
