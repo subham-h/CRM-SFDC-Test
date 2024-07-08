@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Profit_Customer__c</fullName>
+    <description>&quot;+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration&quot; 
+#RQ-004162 
+#RQ-004927</description>
+    <inlineHelpText>This field is used to indicate if company is a non-profit organisation like charity etc</inlineHelpText>
+    <label>Non-Profit Customer</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No</fullName>
+                <default>true</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

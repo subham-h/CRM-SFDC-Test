@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_on_Vendor_Account_Fields_Change</fullName>
+    <active>true</active>
+    <description>#RQ-007439 - To change the details of Vendor, please do this within the master SMDS Vendor system which will replicate into Salesforce automatically</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = &apos;X3rd_Party_Account&apos;, 
+   !ISBLANK( Vendor_Code__c ), 
+   OR( ISCHANGED( Name ),
+       ISCHANGED( Country__c ),
+       ISCHANGED( BillingStreet ), 
+       ISCHANGED( BillingCity ), 
+       ISCHANGED( BillingState ), 
+       ISCHANGED( BillingPostalCode ), 
+       ISCHANGED( BillingCountry ), 
+       ISCHANGED( BillingLatitude ), 
+       ISCHANGED( BillingLongitude ), 
+       ISCHANGED( BillingGeocodeAccuracy ) ), 
+!$Setup.Validation_Rules_Bypass__c.Active__c)</errorConditionFormula>
+    <errorMessage>To change the Vendor Name, address or country, please do this within the master SMDS Vendor system which will replicate into Salesforce automatically</errorMessage>
+</ValidationRule>

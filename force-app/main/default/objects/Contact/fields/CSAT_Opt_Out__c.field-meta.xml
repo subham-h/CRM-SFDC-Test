@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSAT_Opt_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SC-1256 #Case_Mgt_v1: CSAT Closure opt-out option for customers</description>
+    <inlineHelpText>This opt out applies to the Case Closure Email notification with CSAT sent to the customer upon case closure. Please tick this box if the customer does not wish to receive a Case Closure notification email</inlineHelpText>
+    <label>CSAT Opt Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

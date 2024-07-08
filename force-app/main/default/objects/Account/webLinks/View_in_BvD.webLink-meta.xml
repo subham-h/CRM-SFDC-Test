@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_in_BvD</fullName>
+    <availability>online</availability>
+    <description>#RQ-004434-View the account in BvD</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>View in BvD</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!IF( NOT( ISBLANK( Account.BvD_ID__c ) ) , URLFOR($Label.BvD_View_Account_URL +  Account.BvD_ID__c, null) , URLFOR(&apos;/&apos;+Account.Id,null))}</url>
+</WebLink>

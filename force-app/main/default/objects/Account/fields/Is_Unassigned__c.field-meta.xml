@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Unassigned__c</fullName>
+    <description>#RQ-000953. This field can be used to check the &apos;Unassigned &apos; Account record type in apex, WF and Validation rules.</description>
+    <formula>RecordType.DeveloperName  = &apos;Unassigned&apos;</formula>
+    <label>Is Unassigned?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

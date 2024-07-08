@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Maker__c</fullName>
+    <description>#RQ-004426 - Select the respective liner brand(s) that this contact represents as a decision maker. If your contact is decision maker for multiple brands then please select multiple values.</description>
+    <inlineHelpText>Select the respective liner brand(s) that this contact represents as a decision maker. If your contact is decision maker for multiple brands then please select multiple values.</inlineHelpText>
+    <label>Decision Maker</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Maersk Line</fullName>
+                <default>false</default>
+                <label>Maersk Line</label>
+            </value>
+            <value>
+                <fullName>MCC</fullName>
+                <default>false</default>
+                <label>MCC</label>
+            </value>
+            <value>
+                <fullName>Seago</fullName>
+                <default>false</default>
+                <label>Seago</label>
+            </value>
+            <value>
+                <fullName>Sealand</fullName>
+                <default>false</default>
+                <label>Sealand</label>
+            </value>
+            <value>
+                <fullName>Hamburg Sud</fullName>
+                <default>false</default>
+                <label>Hamburg Sud</label>
+            </value>
+            <value>
+                <fullName>Safmarine</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Safmarine</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

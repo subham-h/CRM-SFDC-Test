@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dummy</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SCV_Code__c</field>
+        <operation>equals</operation>
+        <value>32300026192,33100943601</value>
+    </filters>
+    <label>Dummy</label>
+    <language>en_US</language>
+</ListView>

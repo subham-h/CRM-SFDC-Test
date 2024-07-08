@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X05_My_Account_Teams3</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>Customer_Role__c</columns>
+    <columns>MCC_Account_Owner__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Is_Opportunity__c</columns>
+    <columns>Country__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>TAIWAN CHINA</value>
+    </filters>
+    <filters>
+        <field>MCC_Account_Owner__c</field>
+        <operation>equals</operation>
+        <value>EDEN CHEN,JEFFREY TU,HARRY LIN</value>
+    </filters>
+    <label>05. My Account Teams</label>
+</ListView>

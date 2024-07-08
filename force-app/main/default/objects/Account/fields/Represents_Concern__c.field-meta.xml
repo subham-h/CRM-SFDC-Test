@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Represents_Concern__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>#RQ-004705
+As part of the interim solution will create a new field called &quot;Represents Concern&quot; and this is to show the equivalent of the &quot;Is-Concern&quot; relationship that master data will have</description>
+    <inlineHelpText>When set to true this highlights that this SCV code is the equivalent of the concern level account</inlineHelpText>
+    <label>Represents Concern</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

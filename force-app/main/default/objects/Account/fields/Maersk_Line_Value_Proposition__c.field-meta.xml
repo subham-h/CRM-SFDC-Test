@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maersk_Line_Value_Proposition__c</fullName>
+    <description>Created as part of #RQ-004311 - Add Segments to Account</description>
+    <label>z_Maersk Line Value Proposition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Joint Business Partner</fullName>
+                <default>false</default>
+                <label>Joint Business Partner</label>
+            </value>
+            <value>
+                <fullName>Expertise</fullName>
+                <default>false</default>
+                <label>Expertise</label>
+            </value>
+            <value>
+                <fullName>Ambition</fullName>
+                <default>false</default>
+                <label>Ambition</label>
+            </value>
+            <value>
+                <fullName>Advancement</fullName>
+                <default>false</default>
+                <label>Advancement</label>
+            </value>
+            <value>
+                <fullName>Efficiency</fullName>
+                <default>false</default>
+                <label>Efficiency</label>
+            </value>
+            <value>
+                <fullName>Ease</fullName>
+                <default>false</default>
+                <label>Ease</label>
+            </value>
+            <value>
+                <fullName>Super Saver</fullName>
+                <default>false</default>
+                <label>Super Saver</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UniqueUserID_Is_Required</fullName>
+    <active>true</active>
+    <description>Unique User ID field is mandatory for internal contacts (#SC-549)</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c
+&amp;&amp;
+RecordType.DeveloperName = &quot;Internal_Contact&quot;
+&amp;&amp; OR (
+AND (ISNEW(),ISBLANK(Unique_User_ID__c )),
+AND(ISCHANGED(Unique_User_ID__c), ISBLANK(Unique_User_ID__c ))
+)</errorConditionFormula>
+    <errorDisplayField>Unique_User_ID__c</errorDisplayField>
+    <errorMessage>Please update Unique User ID</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Edit_on_Vendor_Accounts</fullName>
+    <active>true</active>
+    <description>#RQ-007439 - Restrict the  edit of Vendor Type on Vendor Accounts.</description>
+    <errorConditionFormula>AND( 
+    OR(RecordType.DeveloperName = &apos;Client_Account&apos;, 
+        RecordType.DeveloperName = &apos;X3rd_Party_Account&apos;), 
+    OR(AND(ISNEW(),(NOT(ISBLANK(Vendor_Type__c )))) , 
+       ISCHANGED( Vendor_Type__c )), 
+    NOT($Permission.Edit_Vendor), 
+    !$Setup.Validation_Rules_Bypass__c.Active__c)</errorConditionFormula>
+    <errorMessage>You are not permitted to change the  vendor type. Please contact the Inland Operations BPO for help.</errorMessage>
+</ValidationRule>

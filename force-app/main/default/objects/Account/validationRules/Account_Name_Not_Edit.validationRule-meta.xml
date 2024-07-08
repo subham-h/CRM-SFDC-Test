@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Name_Not_Edit</fullName>
+    <active>false</active>
+    <description>To prevent the change of the field value. This field is mastered in SCV, changes must come through the interface.</description>
+    <errorConditionFormula>AND(ISCHANGED(Name), ( $Profile.Name != &apos;Integration User&apos; ), (RecordTypeId != $Label.Non_shipping_Party_Account_RecordType_Label),
+(RecordTypeId != 
+$Label.Competitor_Account_Record_Type_Id)  )
+
+&amp;&amp; !$Setup.Validation_Rules_Bypass__c.Active__c</errorConditionFormula>
+    <errorMessage>Account Name can not be changed. Please request any change within the  SCV system.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,72 @@
+/*  
+* Version	Date			Owner					Description
+* --------	-----------		-------------------		-----------
+* 1.0		19-Dec-2022		Vazid@UST				This is a test class for ConcernEventHandler & ConcernEventTrigger
+*/
+@isTest
+public class ConcernEventHandlerTest {
+    
+    
+    @isTest static void testValidConcernEvent() {
+		Concern_Message_Event__e concernEvent = new Concern_Message_Event__e(JSON_1__c = '{"concernentity":{"statuscode":"A","isocountrycode":null,"concernauditdata":{"creationdate":1678288995403,"lastupdatesourcesystem":"SYS0","lastupdatedate":1678288995403,"lastupdateuser":"sli105","creationuser":"sli105"},"concerncode":"WW151792","concernmembers":[{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00915809","customername":"BERTOLINI MOVEIS DE ACO S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00985694","customername":"BERTOLINI SISTEMAS DE ARMAZENAGEM S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00996583","customername":"EVVIBER INDUSTRIA DE MOVEIS LTDA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01097547","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01188592","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01197789","customername":"BERTOLINI MOVEIS DE ACO SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2999-12-31","relationshiptypename":"Concern Member"}],"parentcustomerdetails":{"customerisocountrycode":"BR","relationshiptype":"IS_CONCRN","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A"},"concernexternalsystemidentifiers":[{"externalsystemname":"CMD","isdeletedflag":false,"externalsystemreference":"WW151792"},{"externalsystemname":"SCV","isdeletedflag":false,"externalsystemreference":"***151792"}],"concernname":"BERTOLINI SA"}}');
+        
+        Test.startTest();
+        // Publish test event
+        Database.SaveResult sr = EventBus.publish(concernEvent);
+        // Verify SaveResult value
+        System.assertEquals(true, sr.isSuccess());
+        Test.stopTest();
+        
+        List<Batch_Error_Logger__c> errorLogs = [select id, name, Exception_Cause__c, Exception_Detail__c, Exception_Summary__c from Batch_Error_Logger__c];
+        System.assertEquals(errorLogs.size(), 0, 'No Global error logs created');
+        
+        List<Account> accounts = [SELECT Id, RecordType.DeveloperName, Represents_Concern__c, Vertical__c, Value_Proposition__c, Sub_Segment__c, Industry__c FROM Account];
+        System.assertEquals(accounts.size(), 8, '1 concern account and 7 client accounts to be created ');        
+    }
+    
+    @isTest static void testValidConcernEventPublishLatestMessage() {
+        List<Concern_Message_Event__e> lisConcernMessages = new List<Concern_Message_Event__e>();
+		Concern_Message_Event__e concernEvent1 = new Concern_Message_Event__e(JSON_1__c = '{"concernentity":{"statuscode":"A","isocountrycode":null,"concernauditdata":{"creationdate":1678288995403,"lastupdatesourcesystem":"SYS0","lastupdatedate":1678288995403,"lastupdateuser":"sli105","creationuser":"sli105"},"concerncode":"WW151792","concernmembers":[{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00915809","customername":"BERTOLINI MOVEIS DE ACO S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00985694","customername":"BERTOLINI SISTEMAS DE ARMAZENAGEM S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00996583","customername":"EVVIBER INDUSTRIA DE MOVEIS LTDA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01097547","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01188592","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01197789","customername":"BERTOLINI MOVEIS DE ACO SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2999-12-31","relationshiptypename":"Concern Member"}],"parentcustomerdetails":{"customerisocountrycode":"BR","relationshiptype":"IS_CONCRN","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A"},"concernexternalsystemidentifiers":[{"externalsystemname":"CMD","isdeletedflag":false,"externalsystemreference":"WW151792"},{"externalsystemname":"SCV","isdeletedflag":false,"externalsystemreference":"***151792"}],"concernname":"BERTOLINI SA"}}');
+        Concern_Message_Event__e concernEvent2 = new Concern_Message_Event__e(JSON_1__c = '{"concernentity":{"statuscode":"A","isocountrycode":null,"concernauditdata":{"creationdate":1678289995403,"lastupdatesourcesystem":"SYS0","lastupdatedate":1678288996403,"lastupdateuser":"sli105","creationuser":"sli105"},"concerncode":"WW151792","concernmembers":[{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00915809","customername":"BERTOLINI MOVEIS DE ACO S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00985694","customername":"BERTOLINI SISTEMAS DE ARMAZENAGEM S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00996583","customername":"EVVIBER INDUSTRIA DE MOVEIS LTDA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01097547","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01188592","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01197789","customername":"BERTOLINI MOVEIS DE ACO SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2999-12-31","relationshiptypename":"Concern Member"}],"parentcustomerdetails":{"customerisocountrycode":"BR","relationshiptype":"IS_CONCRN","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A"},"concernexternalsystemidentifiers":[{"externalsystemname":"CMD","isdeletedflag":false,"externalsystemreference":"WW151792"},{"externalsystemname":"SCV","isdeletedflag":false,"externalsystemreference":"***151792"}],"concernname":"BERTOLINI SA Updated"}}');
+        lisConcernMessages.add(concernEvent1);
+        lisConcernMessages.add(concernEvent2);
+        
+        Test.startTest();
+        // Publish test event
+        Database.SaveResult[] sr = EventBus.publish(lisConcernMessages);
+		Test.stopTest();
+        
+        List<Batch_Error_Logger__c> errorLogs = [select id, name, Exception_Cause__c, Exception_Detail__c, Exception_Summary__c from Batch_Error_Logger__c];
+        System.assertEquals(errorLogs.size(), 0, 'No Global error logs created');
+        
+        List<Account> accounts = [SELECT Id, Name, Customer_Code__c,  RecordType.DeveloperName, Represents_Concern__c, Vertical__c, Value_Proposition__c, Sub_Segment__c, Industry__c FROM Account];
+        System.assertEquals(accounts.size(), 8, '1 concern account and 7 client accounts to be created ');
+        
+        Map<String, Account> mapCustomerCodeToAcc = new Map<String, Account>();
+        for(Account acc : accounts){
+            mapCustomerCodeToAcc.put(acc.Customer_Code__c, acc);
+        }
+        System.assertEquals(mapCustomerCodeToAcc.get('WW151792').Name, 'BERTOLINI SA Updated', 'Concern name is BERTOLINI SA Updated');
+        
+    }
+    
+    @isTest static void testValidConcernEventException() {
+		Concern_Message_Event__e concernEvent = new Concern_Message_Event__e(JSON_1__c = '{"concernentity":{"statuscode":"A","isocountrycode":null,"concernauditdata":{"creationdate":"2021-03-07T16:55:54.238+00:00","lastupdatesourcesystem":"SYS0","lastupdatedate":"2021-03-07T16:55:54.238+00:00","lastupdateuser":"sli105","creationuser":"sli105"},"concerncode":"WW151792","concernmembers":[{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00915809","customername":"BERTOLINI MOVEIS DE ACO S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00985694","customername":"BERTOLINI SISTEMAS DE ARMAZENAGEM S/A","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR00996583","customername":"EVVIBER INDUSTRIA DE MOVEIS LTDA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01097547","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01188592","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2022-02-08","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BR01197789","customername":"BERTOLINI MOVEIS DE ACO SA","customerstatuscode":"A","validthroughdate":"2099-12-31","relationshiptypename":"Concern Member"},{"customerisocountrycode":"BR","validfromdate":"2021-03-07","isdeletedflag":false,"relationshiptype":"CONCRN_MEM","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A","validthroughdate":"2999-12-31","relationshiptypename":"Concern Member"}],"parentcustomerdetails":{"customerisocountrycode":"BR","relationshiptype":"IS_CONCRN","customercode":"BRC3701NVM","customername":"BERTOLINI SA","customerstatuscode":"A"},"concernexternalsystemidentifiers":[{"externalsystemname":"CMD","isdeletedflag":false,"externalsystemreference":"WW151792"},{"externalsystemname":"SCV","isdeletedflag":false,"externalsystemreference":"***151792"}],"concernname":"BERTOLINI SA"}}');
+        
+        Test.startTest();
+        // Publish test event
+        Database.SaveResult sr = EventBus.publish(concernEvent);
+        // Verify SaveResult value
+        System.assertEquals(true, sr.isSuccess());
+        Test.stopTest();
+        
+        
+        List<Batch_Error_Logger__c> errorLogs = [select id, name, Exception_Cause__c, Exception_Detail__c, Exception_Summary__c from Batch_Error_Logger__c];
+        System.assertEquals(errorLogs.size(), 1, 'No Global error logs created');
+        
+        List<Account> accounts = [SELECT Id, RecordType.DeveloperName, Represents_Concern__c, Vertical__c, Value_Proposition__c, Sub_Segment__c, Industry__c FROM Account];
+        System.assertEquals(accounts.size(), 0, 'No Accounts created as there is an exception ');        
+    }
+    
+     
+}

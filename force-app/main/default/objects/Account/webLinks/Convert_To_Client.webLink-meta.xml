@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Convert_To_Client</fullName>
+    <availability>online</availability>
+    <description>RQ-004163: Navigate to CMD Screen for converting Draft Account into Client Account.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Convert To Client</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!IF( CONTAINS($Api.Partner_Server_URL_260, &apos;maersk.my.salesforce.com&apos;) , URLFOR($Label.CMD_Prod_URL + &apos;/md/customer/#customer/search/by-trading-name?customerTradingName=&apos; + URLENCODE(Account.Name) + &apos;&amp;postalCode=&apos; + Account.BillingPostalCode + &apos;&amp;streetName=&apos; + URLENCODE(Account.BillingStreet) + &apos;&amp;city=&apos; + URLENCODE(Account.BillingCity) + &apos;&amp;country=&apos; + URLENCODE(Account.Country__c) + &apos;&amp;CustRefType=SFDC&amp;CustRefVal=&apos; + Account.Id, null) , 
+URLFOR($Label.CMD_Test_URL + &apos;/md/customer/#customer/search/by-trading-name?customerTradingName=&apos; + URLENCODE(Account.Name) + &apos;&amp;postalCode=&apos; + Account.BillingPostalCode + &apos;&amp;streetName=&apos; + URLENCODE(Account.BillingStreet) + &apos;&amp;city=&apos; + URLENCODE(Account.BillingCity) + &apos;&amp;country=&apos; + URLENCODE(Account.Country__c) + &apos;&amp;CustRefType=SFDC&amp;CustRefVal=&apos; + Account.Id, null) )}</url>
+</WebLink>

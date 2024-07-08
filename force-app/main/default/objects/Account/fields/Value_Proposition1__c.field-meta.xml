@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value_Proposition1__c</fullName>
+    <description>RQ-007289 : Streamline Value Proposition</description>
+    <label>z_Value Proposition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Joint Business Partner-MSL</fullName>
+                <default>false</default>
+                <label>Joint Business Partner-MSL</label>
+            </value>
+            <value>
+                <fullName>Ambition-MSL</fullName>
+                <default>false</default>
+                <label>Ambition-MSL</label>
+            </value>
+            <value>
+                <fullName>Advancement-MSL</fullName>
+                <default>false</default>
+                <label>Advancement-MSL</label>
+            </value>
+            <value>
+                <fullName>Ease-MSL</fullName>
+                <default>false</default>
+                <label>Ease-MSL</label>
+            </value>
+            <value>
+                <fullName>Efficiency-MSL</fullName>
+                <default>false</default>
+                <label>Efficiency-MSL</label>
+            </value>
+            <value>
+                <fullName>Expertise-MSL</fullName>
+                <default>false</default>
+                <label>Expertise-MSL</label>
+            </value>
+            <value>
+                <fullName>SELF SERVICE-MSL</fullName>
+                <default>false</default>
+                <label>SELF SERVICE-MSL</label>
+            </value>
+            <value>
+                <fullName>Super Saver-MSL</fullName>
+                <default>false</default>
+                <label>Super Saver-MSL</label>
+            </value>
+            <value>
+                <fullName>Expertise-SEA</fullName>
+                <default>false</default>
+                <label>Expertise-SEA</label>
+            </value>
+            <value>
+                <fullName>Ambition-MCC</fullName>
+                <default>false</default>
+                <label>Ambition-MCC</label>
+            </value>
+            <value>
+                <fullName>Super Saver-MCC</fullName>
+                <default>false</default>
+                <label>Super Saver-MCC</label>
+            </value>
+            <value>
+                <fullName>Expertise-MCC</fullName>
+                <default>false</default>
+                <label>Expertise-MCC</label>
+            </value>
+            <value>
+                <fullName>Advancement-MCC</fullName>
+                <default>false</default>
+                <label>Advancement-MCC</label>
+            </value>
+            <value>
+                <fullName>Ease-MCC</fullName>
+                <default>false</default>
+                <label>Ease-MCC</label>
+            </value>
+            <value>
+                <fullName>Joint Business Partner-MCC</fullName>
+                <default>false</default>
+                <label>Joint Business Partner-MCC</label>
+            </value>
+            <value>
+                <fullName>Self Service-MCC</fullName>
+                <default>false</default>
+                <label>Self Service-MCC</label>
+            </value>
+            <value>
+                <fullName>Efficiency-MCC</fullName>
+                <default>false</default>
+                <label>Efficiency-MCC</label>
+            </value>
+            <value>
+                <fullName>Advancement-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Advancement-SCL</label>
+            </value>
+            <value>
+                <fullName>Advancement-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Advancement-SEA</label>
+            </value>
+            <value>
+                <fullName>Ambition-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ambition-SCL</label>
+            </value>
+            <value>
+                <fullName>Ambition-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ambition-SEA</label>
+            </value>
+            <value>
+                <fullName>Ease-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ease-SCL</label>
+            </value>
+            <value>
+                <fullName>Ease-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ease-SEA</label>
+            </value>
+            <value>
+                <fullName>Efficiency-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Efficiency-SCL</label>
+            </value>
+            <value>
+                <fullName>Efficiency-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Efficiency-SEA</label>
+            </value>
+            <value>
+                <fullName>Encouragement-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Encouragement-SCL</label>
+            </value>
+            <value>
+                <fullName>Expertise-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Expertise-SCL</label>
+            </value>
+            <value>
+                <fullName>Joint Business Partner-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Joint Business Partner-SEA</label>
+            </value>
+            <value>
+                <fullName>SELF SERVICE-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SELF SERVICE-SCL</label>
+            </value>
+            <value>
+                <fullName>Self Service-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Self Service-SEA</label>
+            </value>
+            <value>
+                <fullName>Super Saver-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Super Saver-SCL</label>
+            </value>
+            <value>
+                <fullName>Super Saver-SEA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Super Saver-SEA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
