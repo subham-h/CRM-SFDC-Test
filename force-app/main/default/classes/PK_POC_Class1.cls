@@ -12,7 +12,8 @@ public class Accept_CaseController {
     public String createAccount(String name){     
         Account acc = new Account();        
         acc.Name = name;        
-        system.debug('account test');       
+        system.debug('account test1');      
+        system.debug('account test2');  
         return acc.Name;         
     }
     
