@@ -18,6 +18,12 @@ public class Accept_CaseController {
         this.standardSetController = standardSetController;
     }
     public void getMessage(){
+        //Testdata.iNumberOtestfCases = 5; PK 1
+        //Testdata.iNumberOtestfCases = 5; PK 2
+        //Testdata.iNumberOtestfCases = 5; PK 3
+        //Testdata.iNumberOtestfCases = 5; PK 4
+        //Testdata.iNumberOtestfCases = 5; PK 5
+        //Testdata.iNumberOtestfCases = 5; PK 6  
         List<Case> listViewRecords =(List<Case>) standardSetController.getRecords();
         
         // get the selected cases from the list view

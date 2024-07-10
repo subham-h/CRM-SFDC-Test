@@ -12,9 +12,20 @@
 public class Accept_CaseController_Test {
     
     @testSetup
-    static void testDataSetup() {
-        
+    static void testDataSetup() { //testing pankajam
+        //Testdata.iNumberOtestfCases = 5; PK 1 conflicts
+        //Testdata.iNumberOtestfCases = 5; PK 2 conflicts
+        //Testdata.iNumberOtestfCases = 5; PK 3 conflicts
+        //Testdata.iNumberOtestfCases = 5; PK 4 conflicts
+        //Testdata.iNumberOtestfCases = 5; PK 5 conflicts
+        //Testdata.iNumberOtestfCases = 5; PK 6 conflicts    
         CaseData_Test.iNumberOfCases = 5;
+        //Testdata.iNumberOtestfCases = 5; PK 1
+        //Testdata.iNumberOtestfCases = 5; PK 2
+        //Testdata.iNumberOtestfCases = 5; PK 3
+        //Testdata.iNumberOtestfCases = 5; PK 4
+        //Testdata.iNumberOtestfCases = 5; PK 5
+        //Testdata.iNumberOtestfCases = 5; PK 6   
         CaseData_Test.createExternalCases();
         list<Case> lstCases = CaseData_Test.lstCases;
         list<Case> lstUpdateCase = new list<Case>();
@@ -32,7 +43,9 @@ public class Accept_CaseController_Test {
         }
         update lstUpdateCase;
     }
-    static testMethod void  testAcceptCase(){
+    //testing PK
+    //testing PK
+    static testMethod void  testAcceptCase(){ //testing PK
         
         List<Case> testCase = [SELECT Id, Status FROM Case LIMIT 5];
 
@@ -43,7 +56,7 @@ public class Accept_CaseController_Test {
         Accept_CaseController obj = new Accept_CaseController(sc);
         obj.getMessage(); 
         List<Case> updatedCase = [SELECT Id, Status FROM Case LIMIT 5];
-        system.assertNotEquals(obj.acceptMessages, '');        
+        System.assertNotEquals(obj.acceptMessages, 'POC Testing ');        
         obj.retURLFunction();
         
         ApexPages.StandardSetController sc1 = new ApexPages.StandardSetController(testCase);
