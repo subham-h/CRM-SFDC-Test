@@ -13,7 +13,9 @@ public class Accept_CaseController_Test {
     
     @testSetup
     static void testDataSetup() {
-        
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 1
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 2
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 3
         CaseData_Test.iNumberOfCases = 5;
         CaseData_Test.createExternalCases();
         list<Case> lstCases = CaseData_Test.lstCases;
@@ -32,9 +34,16 @@ public class Accept_CaseController_Test {
         }
         update lstUpdateCase;
     }
-    static testMethod void  testAcceptCase(){
+    @isTest
+    static  void  testAcceptCase(){
         
-        List<Case> testCase = [SELECT Id, Status FROM Case LIMIT 5];
+        List<Case> testCase = [SELECT Id, Status FROM Case LIMIT 5]; //CaseData_Test.iNumberOfCases = 5; SHASHI 4
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 5
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 6
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 7
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 8
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 9
+
 
         Test.startTest();
         
@@ -43,14 +52,20 @@ public class Accept_CaseController_Test {
         Accept_CaseController obj = new Accept_CaseController(sc);
         obj.getMessage(); 
         List<Case> updatedCase = [SELECT Id, Status FROM Case LIMIT 5];
-        system.assertNotEquals(obj.acceptMessages, '');        
-        obj.retURLFunction();
+        System.assertNotEquals(obj.acceptMessages, '','Test');        
+        obj.retURLFunction(); 
         
         ApexPages.StandardSetController sc1 = new ApexPages.StandardSetController(testCase);
         Accept_CaseController obj1 = new Accept_CaseController(sc1);
         obj1.getMessage();
         obj.retURLFunction();
-        
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 10
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 11
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 12
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 13
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 14
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 15
+        //CaseData_Test.iNumberOfCases = 5; SHASHI 16
         Test.stopTest();                
     }
 }
