@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unassigned_Accounts_No_Contacts</fullName>
+    <active>true</active>
+    <description>#RQ-000930:Created this validation rule to restrict the users to create contacts on Unassigned record type.</description>
+    <errorConditionFormula>Account.RecordTypeId = &quot;012D0000000kKEd&quot; &amp;&amp; BEGINS( Account.Name, &quot;Unassigned_&quot; )</errorConditionFormula>
+    <errorMessage>Contacts cannot be created against &quot;Unassigned&quot; Accounts.</errorMessage>
+</ValidationRule>

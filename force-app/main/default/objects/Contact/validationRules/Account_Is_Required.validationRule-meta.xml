@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Is_Required</fullName>
+    <active>true</active>
+    <description>#RQ-000609: To prevent Users from creating Contact without an Account.
+#RQ-000932:Added the condition for By passing the validation rule</description>
+    <errorConditionFormula>AND(
+!$Setup.Validation_Rules_Bypass__c.Active__c ,
+ISBLANK(AccountId))</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>Please associate Contact to an Account.</errorMessage>
+</ValidationRule>

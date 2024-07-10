@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enter_only_ASCII_character_in_FN_LN</fullName>
+    <active>true</active>
+    <description>If the SFDC standard field FirstName is not blank and contains a non ASCII character AND the First Name - English field is blank throw an error
+If LastName is not blank and contains a no n ASCII character AND the Last Name - English field is blank</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+OR(AND(NOT(ISBLANK(FirstName)), REGEX(FirstName, &quot;[\\p{ASCII}]*[^\\p{ASCII}]+[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*+[[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*]*&quot;), ISBLANK(First_Name_English__c)), AND(NOT(ISBLANK(LastName)), REGEX(LastName, &quot;[\\p{ASCII}]*[^\\p{ASCII}]+[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*+[[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*]*&quot;),ISBLANK(Last_Name_English__c)))</errorConditionFormula>
+    <errorMessage>You have entered the contacts First Name and or Last Name in your local language, however you have not updated a translation into the fields First Name - English and or Last Name - English. Please do so before saving this contact</errorMessage>
+</ValidationRule>

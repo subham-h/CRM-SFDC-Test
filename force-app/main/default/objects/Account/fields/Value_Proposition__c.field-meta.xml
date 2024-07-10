@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value_Proposition__c</fullName>
+    <description>+++ INTEGRATION: SFMC +++
+Do not change this field without reviewing impact with Marketing cloud&quot; .
+Existing contact report that feeds SFMC may need to be changed</description>
+    <label>Value Proposition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Account_Value_Proposition</valueSetName>
+    </valueSet>
+</CustomField>

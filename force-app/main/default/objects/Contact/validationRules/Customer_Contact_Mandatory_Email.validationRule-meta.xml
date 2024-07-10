@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Contact_Mandatory_Email</fullName>
+    <active>true</active>
+    <description>SFSE-9907 : Email address is mandatory for customer contacts</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c
+&amp;&amp; ISBLANK(Email)
+&amp;&amp; ISPICKVAL( Contact_Status__c, &apos;Active&apos;)
+&amp;&amp; NOT(CONTAINS($User.Username,&quot;empinterface@maersk.com&quot;))
+&amp;&amp; RecordType.DeveloperName = &apos;Customer_Contact&apos;</errorConditionFormula>
+    <errorMessage>It is mandatory to provide a valid email address to save your changes for customer contact. Please update email address for contact before pressing save button.</errorMessage>
+</ValidationRule>

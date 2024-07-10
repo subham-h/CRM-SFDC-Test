@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TeamContact_NotBlank_SalutationFirstName</fullName>
+    <active>true</active>
+    <description>#RQ-005056 - Salutation and First Name field should be blank for a team contact</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+RecordType.DeveloperName == &quot;Customer_Contact&quot; 
+&amp;&amp; ISPICKVAL(Team_Contact__c, &quot;Yes&quot;) 
+&amp;&amp; (NOT(ISPICKVAL(Salutation,&quot;&quot;)) || NOT(ISBLANK(FirstName)))</errorConditionFormula>
+    <errorMessage>Team Contacts are not allowed to have a Salutation or First Name. Please remove this information or set the field &apos;Team Contact&apos; to No.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Logwin_inactive_contacts</fullName>
+    <columns>Country__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Last_Used_ANI__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>Logwin</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Germany,Austria,Switzerland</value>
+    </filters>
+    <filters>
+        <field>Contact_Status__c</field>
+        <operation>equals</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+        <value>+49 11111,+43 11111</value>
+    </filters>
+    <label>Logwin AT,DE,CH inactive contacts</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>MSL_SVC_NEC_GERMANY_HAMBURG</role>
+    </sharedTo>
+</ListView>

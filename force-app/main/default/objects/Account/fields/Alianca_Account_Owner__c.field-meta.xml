@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alianca_Account_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SFSE-8475 : This field is used to store the Alianca account Owner</description>
+    <inlineHelpText>The Alianca Sales Person Responsible for this Account.</inlineHelpText>
+    <label>Alianca Owner</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>User.UserType</field>
+            <operation>equals</operation>
+            <value>Standard</value>
+        </filterItems>
+        <infoMessage>Please select an Internal User</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts_Alianca_Owner</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_Portfolio_Targets</fullName>
+    <availability>online</availability>
+    <description>#RQ-004207 : VF page for current logged in user to set Potentials and Targets</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Account Targets</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/cluAP?scvCode={!Account.SCV_Code__c}</url>
+</WebLink>

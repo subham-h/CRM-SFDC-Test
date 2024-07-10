@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Contacts_Being_Linked_To_Concern</fullName>
+    <active>true</active>
+    <description>RQ-004705
+To prevent contacts being linked to Concern Accounts</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+Account.RecordType.DeveloperName  = &quot;Concern_Account&quot;</errorConditionFormula>
+    <errorMessage>Contacts can&apos;t be linked to concern level accounts. To do this, find the relevant SCV level account in this concerns hierarchy that has the &apos;Represents Concern&apos; field set to true</errorMessage>
+</ValidationRule>

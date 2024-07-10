@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Role__c</fullName>
+    <description>&quot;+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration&quot; 
+#RQ-004162 
+#RQ-004927</description>
+    <inlineHelpText>Indicates whether customer is a direct customer or 3rd party acting on behalf of customer . This is not the equivalent of NAC.This field is updated via integartion from CMD.</inlineHelpText>
+    <label>Customer Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BCO</fullName>
+                <default>false</default>
+                <label>BCO</label>
+            </value>
+            <value>
+                <fullName>Forwarder</fullName>
+                <default>false</default>
+                <label>Forwarder</label>
+            </value>
+            <value>
+                <fullName>Shipping Line</fullName>
+                <default>false</default>
+                <label>Shipping Line</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

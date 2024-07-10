@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Code__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>&quot;+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration&quot; 
+#RQ-007439</description>
+    <externalId>true</externalId>
+    <label>Vendor Code</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

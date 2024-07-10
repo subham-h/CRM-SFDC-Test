@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Telephony_Agent_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>SC-961
+Cisco have confirmed that they will never be able to match agents based on Contact email address. Using this field to store Agent Ids in Salesforce.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this field to indicate the Agent Id for the routing strategy.</inlineHelpText>
+    <label>Telephony Agent ID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

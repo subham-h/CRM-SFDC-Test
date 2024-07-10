@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Email_OtherEmail_Validation</fullName>
+    <active>true</active>
+    <description>#RQ-004903 - New validation rule on Email and Other Email fields to align with CMD</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+OR(
+AND(
+OR(ISCHANGED(Email) ,ISNEW()),
+NOT(ISBLANK(Email)),
+NOT(REGEX(Email,&quot;[a-zA-Z0-9\\!\\#\\$\\%\\&amp;\\*\\/\\=\\?\\^\\_\\+\\-\\`\\|\\~\\x27\\}\\{][a-zA-Z0-9\\.\\!\\#\\$\\%\\&amp;\\*\\/\\=\\?\\^\\_\\+\\-\\`\\|\\~\\x27\\}\\{]*@[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]+&quot;))
+),
+AND(
+OR(ISCHANGED(Duplicate_Email__c) ,ISNEW()),
+NOT(ISBLANK(Duplicate_Email__c)),
+NOT(REGEX(Duplicate_Email__c,&quot;[a-zA-Z0-9\\!\\#\\$\\%\\&amp;\\*\\/\\=\\?\\^\\_\\+\\-\\`\\|\\~\\x27\\}\\{][a-zA-Z0-9\\.\\!\\#\\$\\%\\&amp;\\*\\/\\=\\?\\^\\_\\+\\-\\`\\|\\~\\x27\\}\\{]*@[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]+&quot;))
+)
+)</errorConditionFormula>
+    <errorMessage>The contact&apos;s email address is not in a valid format. Please review the email or other email and correct before saving the record.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X06_All_Non_Shipping_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STREET</columns>
+    <columns>ACCOUNT.ADDRESS1_CITY</columns>
+    <columns>ACCOUNT.ADDRESS1_ZIP</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>MSL_Account_Owner__c</columns>
+    <columns>Email__c</columns>
+    <columns>Vendor_Code__c</columns>
+    <columns>Vendor_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>06. All Non-Shipping Accounts</label>
+</ListView>
