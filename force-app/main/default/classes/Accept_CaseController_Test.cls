@@ -11,7 +11,7 @@
 @isTest
 public class Accept_CaseController_Test {
     
-    @testSetup
+    @testSetup 
     static void testDataSetup() {
         //CaseData_Test.iNumberOfCases = 5; SHASHI 1
         //CaseData_Test.iNumberOfCases = 5; SHASHI 2
