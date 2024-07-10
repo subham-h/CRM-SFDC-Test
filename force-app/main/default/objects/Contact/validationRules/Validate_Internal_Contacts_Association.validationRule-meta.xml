@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Internal_Contacts_Association</fullName>
+    <active>true</active>
+    <description>#RQ-005193 - Prevent Internal Contacts being linked to customer accounts</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp;
+OR(
+AND(
+NOT(OR(RecordType.DeveloperName = &quot;Internal_Contact&quot;, RecordType.DeveloperName = &quot;Third_Party_Contact&quot;)),
+OR(CONTAINS(Email, &apos;@maersk.com&apos;), CONTAINS(Email, &apos;@maerskline.com&apos;), CONTAINS(Email, &apos;@maersk-contractors.com&apos;), CONTAINS(Email, &apos;@mcc.com.sg&apos;), CONTAINS(Email, &apos;@sealand.com&apos;), CONTAINS(Email, &apos;@seagoline.com&apos;), CONTAINS(Email, &apos;@sealandmaersk.com&apos;), CONTAINS(Email, &apos;@transamar.pt&apos;), CONTAINS(Email, &apos;@twill.net&apos;), CONTAINS(Email, &apos;@mcctransport.com.ph&apos;),CONTAINS(Email, &apos;@maersk.co.tz&apos;),CONTAINS(Email, &apos;@hamburgsud.com&apos;),CONTAINS(Email, &apos;@alianca.com.br&apos;))),
+AND(
+RecordType.DeveloperName = &quot;Internal_Contact&quot;,
+NOT(OR(CONTAINS(Email, &apos;@maersk.com&apos;), CONTAINS(Email, &apos;@maerskline.com&apos;), CONTAINS(Email, &apos;@maersk-contractors.com&apos;), CONTAINS(Email, &apos;@lns.maersk.com&apos;), CONTAINS(Email, &apos;@mcc.com.sg&apos;), CONTAINS(Email, &apos;@sealand.com&apos;), CONTAINS(Email, &apos;@seagoline.com&apos;), CONTAINS(Email, &apos;@sealandmaersk.com&apos;), CONTAINS(Email, &apos;@transamar.pt&apos;), CONTAINS(Email, &apos;@twill.net&apos;), CONTAINS(Email, &apos;@mcctransport.com.ph&apos;),CONTAINS(Email, &apos;@maersk.co.tz&apos;),CONTAINS(Email, &apos;@hamburgsud.com&apos;),CONTAINS(Email, &apos;@alianca.com.br&apos;)))
+)
+)</errorConditionFormula>
+    <errorMessage>You can only create Internal contacts of the Maersk Group as &apos;Internal&apos; contacts. 
+You are unable to create non &apos;Internal&apos; contacts of the Maersk Group, e.g. customer contacts, as &apos;Internal&apos; contacts.</errorMessage>
+</ValidationRule>

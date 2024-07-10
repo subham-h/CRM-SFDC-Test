@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Accounts127</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>SCV_Status__c</columns>
+    <columns>Value_Proposition__c</columns>
+    <columns>Vertical__c</columns>
+    <columns>Concern_Code__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Is_Opportunity__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MSL_Account_Owner__c</field>
+        <operation>contains</operation>
+        <value>Starcke</value>
+    </filters>
+    <label>My Accounts</label>
+    <sharedTo>
+        <role>MSL_SAL_NEU_NDC_DK_Sales_Management</role>
+        <role>MSL_SAL_NEU_NDC_Key_Client_Management</role>
+        <role>MSL_SAL_NEU_NDC_SE_INS_Sales</role>
+        <role>MSL_SAL_NEU_NDC_SE_Sales_Management</role>
+        <role>NDC_Area</role>
+    </sharedTo>
+</ListView>

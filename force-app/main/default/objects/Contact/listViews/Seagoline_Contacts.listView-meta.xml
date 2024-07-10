@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seagoline_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Contact_Status__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Country__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Liner_Brands__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>lessOrEqual</operation>
+        <value>6/18/2018</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Turkey</value>
+    </filters>
+    <filters>
+        <field>Liner_Brands__c</field>
+        <operation>equals</operation>
+        <value>Seago</value>
+    </filters>
+    <filters>
+        <field>Contact_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>Seagoline Contacts</label>
+    <language>en_US</language>
+</ListView>

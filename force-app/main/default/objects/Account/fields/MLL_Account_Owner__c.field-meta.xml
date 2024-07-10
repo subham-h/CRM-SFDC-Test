@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MLL_Account_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>#PR-0054: Set through one-way integration with master data system SCV / SMDS, therefore should be read only for all users.</description>
+    <inlineHelpText>The MLL sales person responsible for this Account.</inlineHelpText>
+    <label>MLL Owner</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>User.MLL__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>User.UserType</field>
+            <operation>equals</operation>
+            <value>Standard</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts9</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

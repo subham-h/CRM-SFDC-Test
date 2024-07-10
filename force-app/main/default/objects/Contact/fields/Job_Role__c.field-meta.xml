@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Role__c</fullName>
+    <label>Job Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Accounts Payable</fullName>
+                <default>false</default>
+                <label>Accounts Payable</label>
+            </value>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>CEO</label>
+            </value>
+            <value>
+                <fullName>CFO</fullName>
+                <default>false</default>
+                <label>CFO</label>
+            </value>
+            <value>
+                <fullName>CIO</fullName>
+                <default>false</default>
+                <label>CIO</label>
+            </value>
+            <value>
+                <fullName>Commercial Manager/Director</fullName>
+                <default>false</default>
+                <label>Commercial Manager/Director</label>
+            </value>
+            <value>
+                <fullName>Compliance / Customs</fullName>
+                <default>false</default>
+                <label>Compliance / Customs</label>
+            </value>
+            <value>
+                <fullName>COO</fullName>
+                <default>false</default>
+                <label>COO</label>
+            </value>
+            <value>
+                <fullName>CPO/Chief Procurement Officer</fullName>
+                <default>false</default>
+                <label>CPO/Chief Procurement Officer</label>
+            </value>
+            <value>
+                <fullName>CTO</fullName>
+                <default>false</default>
+                <label>CTO</label>
+            </value>
+            <value>
+                <fullName>Director/Head of Procurement</fullName>
+                <default>false</default>
+                <label>Director/Head of Procurement</label>
+            </value>
+            <value>
+                <fullName>Export Manager</fullName>
+                <default>false</default>
+                <label>Export Manager</label>
+            </value>
+            <value>
+                <fullName>Head of Digital Transformation</fullName>
+                <default>false</default>
+                <label>Head of Digital Transformation</label>
+            </value>
+            <value>
+                <fullName>Head of Supply Chain</fullName>
+                <default>false</default>
+                <label>Head of Supply Chain</label>
+            </value>
+            <value>
+                <fullName>Import Manager</fullName>
+                <default>false</default>
+                <label>Import Manager</label>
+            </value>
+            <value>
+                <fullName>Logistics Coordinator</fullName>
+                <default>false</default>
+                <label>Logistics Coordinator</label>
+            </value>
+            <value>
+                <fullName>Logistics Manager/Director</fullName>
+                <default>false</default>
+                <label>Logistics Manager/Director</label>
+            </value>
+            <value>
+                <fullName>Marketing Manager/Director</fullName>
+                <default>false</default>
+                <label>Marketing Manager/Director</label>
+            </value>
+            <value>
+                <fullName>Operations Director</fullName>
+                <default>false</default>
+                <label>Operations Director</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Press</fullName>
+                <default>false</default>
+                <label>Press</label>
+            </value>
+            <value>
+                <fullName>Procurement Manager</fullName>
+                <default>false</default>
+                <label>Procurement Manager</label>
+            </value>
+            <value>
+                <fullName>Products Manager</fullName>
+                <default>false</default>
+                <label>Products Manager</label>
+            </value>
+            <value>
+                <fullName>Purchase Manager</fullName>
+                <default>false</default>
+                <label>Purchase Manager</label>
+            </value>
+            <value>
+                <fullName>Sales Manager/Director</fullName>
+                <default>false</default>
+                <label>Sales Manager/Director</label>
+            </value>
+            <value>
+                <fullName>Sales Representative</fullName>
+                <default>false</default>
+                <label>Sales Representative</label>
+            </value>
+            <value>
+                <fullName>Sourcing Manager</fullName>
+                <default>false</default>
+                <label>Sourcing Manager</label>
+            </value>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Supply Chain Manager</fullName>
+                <default>false</default>
+                <label>Supply Chain Manager</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

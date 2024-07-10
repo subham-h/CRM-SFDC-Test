@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agreed_Engagement_Approach__c</fullName>
+    <description>RQ-004026 Added as part of this requirement.</description>
+    <inlineHelpText>Enter the main method for a Sales Rep to interact with this customer - One Engagement Value Per Brand</inlineHelpText>
+    <label>Agreed Engagement Approach</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KC Owner-MSL</fullName>
+                <default>false</default>
+                <label>KC Owner-MSL</label>
+            </value>
+            <value>
+                <fullName>Reactive-MSL</fullName>
+                <default>false</default>
+                <label>Online-MSL</label>
+            </value>
+            <value>
+                <fullName>Primarily Field-MSL</fullName>
+                <default>false</default>
+                <label>Primarily Field-Based-MSL</label>
+            </value>
+            <value>
+                <fullName>Primarily Remote-MSL</fullName>
+                <default>false</default>
+                <label>Primarily Office-Based-MSL</label>
+            </value>
+            <value>
+                <fullName>Specialist-MSL</fullName>
+                <default>false</default>
+                <label>Specialist-MSL</label>
+            </value>
+            <value>
+                <fullName>Encouragement-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Encouragement-SCL</label>
+            </value>
+            <value>
+                <fullName>Field-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Field-SCL</label>
+            </value>
+            <value>
+                <fullName>Office-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Office-SCL</label>
+            </value>
+            <value>
+                <fullName>One touch-SCL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>One touch-SCL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

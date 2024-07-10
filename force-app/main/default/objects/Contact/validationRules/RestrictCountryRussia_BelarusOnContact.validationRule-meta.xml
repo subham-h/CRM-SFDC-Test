@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictCountryRussia_BelarusOnContact</fullName>
+    <active>true</active>
+    <description>Validation to prevent Contact creation / updation when country updated to Russia/Belarus</description>
+    <errorConditionFormula>AND(
+    !$Setup.Validation_Rules_Bypass__c.Active__c,
+    OR(
+       RecordType.DeveloperName = &quot;Customer_Contact&quot;,
+       RecordType.DeveloperName = &quot;Third_Party_Contact&quot;
+    ),
+    OR(
+       ISNEW(),
+       ISCHANGED( Country__c ),
+       ISCHANGED( MailingCountry ),
+       ISCHANGED( OtherCountry )
+     ),
+     OR(
+        AND(
+            CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, Country__r.Name ),
+            !ISBLANK(Country__c)
+         ),
+         AND(
+             CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, MailingCountry ),
+             !ISBLANK( MailingCountry )
+          ),
+          AND(
+              CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, OtherCountry ),
+              !ISBLANK( OtherCountry )
+          )
+    )
+)</errorConditionFormula>
+    <errorMessage>As per company policy no new contacts associated with customer or prospect accounts can be created for Russia and Belarus</errorMessage>
+</ValidationRule>

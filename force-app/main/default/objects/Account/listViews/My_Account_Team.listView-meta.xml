@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Account_Team</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Record_Type__c</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>MSL_Account_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner_Maersk_ID__c</field>
+        <operation>equals</operation>
+        <value>cne006</value>
+    </filters>
+    <label>05. My Account Teams</label>
+    <language>en_US</language>
+</ListView>

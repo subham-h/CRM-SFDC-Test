@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_editing_Damco_FACT_Code</fullName>
+    <active>true</active>
+    <description>RQ-010048 : To prevent editing Legacy_ExtID__c if its already populated.</description>
+    <errorConditionFormula>AND( 
+    !$Setup.Validation_Rules_Bypass__c.Active__c, 
+    !ISBLANK(PRIORVALUE(Legacy_ExtID__c)),
+				ISCHANGED(Legacy_ExtID__c)
+)
+&amp;&amp; ($Profile.Name != &apos;System Administrator&apos; ) &amp;&amp; 
+!$Permission.Edit_Legacy_fields_on_Account_and_Opportunity</errorConditionFormula>
+    <errorMessage>You do not have access to amend the Damco FACT Code. Please contact Livehelp if you believe an incorrect Code has been provided.</errorMessage>
+</ValidationRule>

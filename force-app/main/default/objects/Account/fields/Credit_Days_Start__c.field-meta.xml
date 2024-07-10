@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Days_Start__c</fullName>
+    <description>Visible only to SCL reps</description>
+    <label>z_Credit Days Start</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Credit Days Start</fullName>
+                <default>false</default>
+                <label>Credit Days Start</label>
+            </value>
+            <value>
+                <fullName>CM - Current Month</fullName>
+                <default>false</default>
+                <label>CM - Current Month</label>
+            </value>
+            <value>
+                <fullName>INV - Invoice Date</fullName>
+                <default>false</default>
+                <label>INV - Invoice Date</label>
+            </value>
+            <value>
+                <fullName>SAI - Sailing/Arrival Date</fullName>
+                <default>false</default>
+                <label>SAI - Sailing/Arrival Date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

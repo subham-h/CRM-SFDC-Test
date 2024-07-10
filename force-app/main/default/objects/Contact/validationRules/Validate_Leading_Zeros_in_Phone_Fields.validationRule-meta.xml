@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Leading_Zeros_in_Phone_Fields</fullName>
+    <active>true</active>
+    <description>#RQ-005255: Numbers entered in the fields &apos;Office Phone&apos;, &apos;Other Phone&apos;, Mobile or Fax should not start with a &apos;0&apos; after the international dialling code.</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+(RecordType.Name != &quot;Internal Contact&quot;) &amp;&amp; 
+OR( 
+AND( 
+NOT(BEGINS(MobilePhone, &quot;+225&quot;)), 
+(REGEX(MobilePhone, $Label.Regex_Phone_Int_Dailing)) 
+), 
+AND( 
+NOT(BEGINS(OtherPhone, &quot;+225&quot;)), 
+(REGEX(OtherPhone,$Label.Regex_Phone_Int_Dailing )) 
+), 
+AND( 
+NOT(BEGINS(Fax, &quot;+225&quot;)), 
+(REGEX(Fax, $Label.Regex_Phone_Int_Dailing)) 
+), 
+AND( 
+NOT(BEGINS(Phone, &quot;+225&quot;)), 
+(REGEX(Phone, $Label.Regex_Phone_Int_Dailing)) 
+) 
+)</errorConditionFormula>
+    <errorMessage>Please ensure that the number entered in the fields &apos;Office Phone&apos;, &apos;Other Phone&apos;, Mobile or Fax do not start with a &apos;0&apos; after the international dialling code. e.g. +1 1231231234 or +44 1234123456 or +358 123123123.</errorMessage>
+</ValidationRule>

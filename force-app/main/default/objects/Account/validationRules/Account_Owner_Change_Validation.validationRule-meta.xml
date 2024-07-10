@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Owner_Change_Validation</fullName>
+    <active>true</active>
+    <description>This validation rule prevents account owner from changing.</description>
+    <errorConditionFormula>AND(
+ISCHANGED( OwnerId ),
+AND( NOT($Profile.Name = &apos;System Administrator&apos;),
+NOT($Profile.Name = &apos;Integration User&apos;),
+NOT($Profile.Name =&apos;LiveHelp&apos;))
+)</errorConditionFormula>
+    <errorMessage>Account Owner cannot be changed</errorMessage>
+</ValidationRule>

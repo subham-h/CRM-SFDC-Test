@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liner_Brand_Logo__c</fullName>
+    <description>#PR-00031_3 : Modified this formula for showing the Sealand image on Target records.
+#PR-0047:Added MCC Logo
+#PR-0055-Added Seago Logo
+#RQ-002890-Replaced the reference to liner brand logos with corresponding Static resources
+#SPI-100: Replaced references with custom metadata</description>
+    <externalId>false</externalId>
+    <formula>IMAGE( &quot;/resource/LogosForLinerBrandFlags/LogosForLinerBrandFlags/&quot; &amp;
+IF(TEXT(Liner_Brand__c) == $CustomMetadata.Brand__mdt.MaerskLine.MasterLabel, $CustomMetadata.Brand__mdt.MaerskLine.Logo__c,  
+IF(TEXT(Liner_Brand__c) == $CustomMetadata.Brand__mdt.Sealand.MasterLabel, $CustomMetadata.Brand__mdt.Sealand.Logo__c, 
+IF(TEXT(Liner_Brand__c) == $CustomMetadata.Brand__mdt.MCC.MasterLabel, $CustomMetadata.Brand__mdt.MCC.Logo__c, 
+IF(TEXT(Liner_Brand__c) == $CustomMetadata.Brand__mdt.Seago.MasterLabel, $CustomMetadata.Brand__mdt.Seago.Logo__c, 
+IF(TEXT(Liner_Brand__c) == $CustomMetadata.Brand__mdt.HamburgSud.MasterLabel, $CustomMetadata.Brand__mdt.HamburgSud.Logo__c,
+$CustomMetadata.Brand__mdt.Default.Logo__c))))), 
+&quot;Liner Logo&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Brand Logo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

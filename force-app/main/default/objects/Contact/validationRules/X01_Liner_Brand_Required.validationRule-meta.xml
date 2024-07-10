@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X01_Liner_Brand_Required</fullName>
+    <active>true</active>
+    <description>All Contacts must have a Liner Brand, normally this is set as most users belong to one Liner Brand but in some cases users represent both in which case we need to prompt them to choose.#PR-0055-Added Seago liner brand, #RQ-003041,#RQ-002892, #RQ-004298</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+AND( NOT(RecordType.DeveloperName == &apos;Internal_Contact&apos;), OR(
+ISBLANK(Liner_Brands__c) , 
+AND (PRIORVALUE(Liner_Brands_Text__c) &lt;&gt; &apos;&apos; , 
+ISBLANK(Liner_Brands__c))))</errorConditionFormula>
+    <errorDisplayField>Liner_Brands__c</errorDisplayField>
+    <errorMessage>Please specify the Brand for your contact. If your contact has business dealings with multiple brands you can select multiple brand value as applicable.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stop_NonShipping_account_Creation</fullName>
+    <active>true</active>
+    <description>This is created for Twill and MLL users not to allow them to create Non shipping Party accounts</description>
+    <errorConditionFormula>IF(AND($RecordType.DeveloperName==&apos;X3rd_Party_Account&apos;, OR($User.Twill__c==true, AND($User.MLL__c==true,  OR($Profile.Name==&apos;Sales&apos;,$Profile.Name=&apos;Super User&apos;)))), true, false)</errorConditionFormula>
+    <errorMessage>You are not authorized to create Non shipping Party Account</errorMessage>
+</ValidationRule>

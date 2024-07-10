@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Invalid_Email_Addresses</fullName>
+    <active>true</active>
+    <description>RQ-011994: To avoid  Undeliverable Emails being added to contacts.</description>
+    <errorConditionFormula>AND(
+    !$Setup.Validation_Rules_Bypass__c.Active__c,
+    NOT(ISBLANK( Email )) , 
+    CONTAINS( $Label.Maersk_Invalid_Email_Addresses , Email )
+)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>Please provide a valid Email address.</errorMessage>
+</ValidationRule>

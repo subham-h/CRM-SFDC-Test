@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Draft_Account</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Account_Compact_Layout</compactLayoutAssignment>
+    <description>Draft Accounts are new customers who have never done business with the company and so do not have an SCV code but need Quotes issued to them.</description>
+    <label>Draft Account</label>
+    <picklistValues>
+        <picklist>AccountSource</picklist>
+        <values>
+            <fullName>Cold Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact Us</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fairs %26 Exhibitions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Activity_Status__c</picklist>
+        <values>
+            <fullName>ACTIVE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INACTIVE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Address_Type__c</picklist>
+        <values>
+            <fullName>Permanent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Attractiveness__c</picklist>
+        <values>
+            <fullName>Booster</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Key Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Runway</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Company_Presence__c</picklist>
+        <values>
+            <fullName>Central America%2C Andina%2C Caribbean</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central South Europe Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East Coast South America Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eastern Africa Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eastern Europe Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eastern Mediterranean Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greater China Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India and Bangladesh Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mekong Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nordic Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North America Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East Asia Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North Europe Continent Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oceania Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pakistan Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saudi Arabia Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West Europe Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South-East Asia Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Southern Africa and Islands Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Arab Emirates Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Kingdom and Ireland Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Africa Area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Coast South America Area</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Credit_Days_Start__c</picklist>
+        <values>
+            <fullName>CM - Current Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Days Start</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INV - Invoice Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAI - Sailing%2FArrival Date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Group__c</picklist>
+        <values>
+            <fullName>SCPI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SCPI_TAX_EXEMPTED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Position__c</picklist>
+        <values>
+            <fullName>Retention</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retention 70</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Size__c</picklist>
+        <values>
+            <fullName>Large</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Type__c</picklist>
+        <values>
+            <fullName>External</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Aid-Humanitarian cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automotive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemicals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dangerous cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electronics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food %26 Beverages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Footwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Freight All Kinds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Furniture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Merchandise%28GDSM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health%2FPharmaceuticals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High-value Customer Goods</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Improvements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industrials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low value cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Machinery and parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perishables</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recreation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Textile %26 Apparels</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry__c</picklist>
+        <values>
+            <fullName>Agriculture Horticulture %26 Livestock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automobile %26 Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banana%2C Pineapples%2C Papaya</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banking Insurance %26 Financial Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biotechnology and Life Sciences</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemicals Petroleum Rubber %26 Plastic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Computer Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Computer Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Construction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food %26 Tobacco Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Frozen Fish %26 Seafood</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Garments%2C Apparel %26 Used Clothing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industrial Electric %26 Electronic Machinery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Information Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leather Stone Clay %26 Glass Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marbel%2C Tiles %26 Stone Articals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meat Frozen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media %26 Broadcasting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Metals %26 Metal Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mining %26 Extraction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misc Manufactured Goods</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Miscellaneous Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Frozen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Frozen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Non Frozen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pharmaceuticals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printing %26 Publishing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Administration Education Health Social Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resin %26 Plastic Scrap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scrap Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seasonal Fruit Non Frozen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Textiles %26 Clothing Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport Freight and Storage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Personal %26 Leisure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waste Management %26 Treatment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wholesale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wood Furniture %26 Paper Manufacturing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Key_Account_Type__c</picklist>
+        <values>
+            <fullName>Development KA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Key</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Key</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>No_of_Employees__c</picklist>
+        <values>
+            <fullName>%3E200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%3E500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1-10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10-50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>100-200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50-100</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ownership</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Term__c</picklist>
+        <values>
+            <fullName>Cash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority_Level__c</picklist>
+        <values>
+            <fullName>Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SCV_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Channel__c</picklist>
+        <values>
+            <fullName>Integrated Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Office__c</picklist>
+        <values>
+            <fullName>BEANT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBBFS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBLDN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INAMD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INCCU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INCOK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INJAI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INJHT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INKRQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INMAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INNWD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTUT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZACPT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZADUR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZAEBS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZAJNB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZAP1R</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZAPLZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZAPOT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Segment__c</picklist>
+        <values>
+            <fullName>BIG BCO specialist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Freight Forwarder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Champion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small Medium Forwarder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specialised Forwarder</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>BCO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Forwarder</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Account__c</picklist>
+        <values>
+            <fullName>Draft Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-shipping Party Account</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Value_Proposition1__c</picklist>
+        <values>
+            <fullName>Advancement-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ambition-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ease-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Efficiency-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expertise-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expertise-SEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Joint Business Partner-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Service-MCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Super Saver-MCC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Value_Proposition__c</picklist>
+        <values>
+            <fullName>Advancement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ambition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ease</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Efficiency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expertise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Super Saver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Vertical__c</picklist>
+        <values>
+            <fullName>Automotive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemicals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reefer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

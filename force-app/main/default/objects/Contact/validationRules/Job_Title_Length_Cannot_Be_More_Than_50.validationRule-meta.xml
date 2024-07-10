@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Title_Length_Cannot_Be_More_Than_50</fullName>
+    <active>true</active>
+    <description>RQ-007236-Reduce length of Job title to align with CMD</description>
+    <errorConditionFormula>AND(OR(ISCHANGED(Title),ISNEW()),NOT(ISBLANK(Title)),LEN(Title)&gt;50)</errorConditionFormula>
+    <errorDisplayField>Title</errorDisplayField>
+    <errorMessage>Job title length should be within 50 characters</errorMessage>
+</ValidationRule>

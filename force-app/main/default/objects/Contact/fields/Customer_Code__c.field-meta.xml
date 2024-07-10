@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Code__c</fullName>
+    <description>Backend field created to store the customer code for the contacts failed to insert because account not existed. This value will be cleared once contact tagged to account.</description>
+    <externalId>false</externalId>
+    <label>Customer Code</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

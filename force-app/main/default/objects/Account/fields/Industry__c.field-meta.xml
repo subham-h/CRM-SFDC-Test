@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry__c</fullName>
+    <description>&quot;+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration&quot; 
+This field is added for selecting industries on account.
+#RQ-000235 - Added picklist value &quot;Other&quot; and Help text.
+#RQ-004927
+#RQ-004162 - Removed the picklist value &quot;other&quot;</description>
+    <inlineHelpText>Indicates the industry categories this account is involved with</inlineHelpText>
+    <label>Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agriculture Horticulture &amp; Livestock</fullName>
+                <default>false</default>
+                <label>Agriculture Horticulture &amp; Livestock</label>
+            </value>
+            <value>
+                <fullName>Banking Insurance &amp; Financial Services</fullName>
+                <default>false</default>
+                <label>Banking Insurance &amp; Financial Services</label>
+            </value>
+            <value>
+                <fullName>Biotechnology and Life Sciences</fullName>
+                <default>false</default>
+                <label>Biotechnology and Life Sciences</label>
+            </value>
+            <value>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+                <label>Business Services</label>
+            </value>
+            <value>
+                <fullName>Chemicals Petroleum Rubber &amp; Plastic</fullName>
+                <default>false</default>
+                <label>Chemicals Petroleum Rubber &amp; Plastic</label>
+            </value>
+            <value>
+                <fullName>Communications</fullName>
+                <default>false</default>
+                <label>Communications</label>
+            </value>
+            <value>
+                <fullName>Computer Hardware</fullName>
+                <default>false</default>
+                <label>Computer Hardware</label>
+            </value>
+            <value>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+                <label>Computer Software</label>
+            </value>
+            <value>
+                <fullName>Construction</fullName>
+                <default>false</default>
+                <label>Construction</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Tobacco Manufacturing</fullName>
+                <default>false</default>
+                <label>Food &amp; Tobacco Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Industrial Electric &amp; Electronic Machinery</fullName>
+                <default>false</default>
+                <label>Industrial Electric &amp; Electronic Machinery</label>
+            </value>
+            <value>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+                <label>Information Services</label>
+            </value>
+            <value>
+                <fullName>Leather Stone Clay &amp; Glass Products</fullName>
+                <default>false</default>
+                <label>Leather Stone Clay &amp; Glass Products</label>
+            </value>
+            <value>
+                <fullName>Media &amp; Broadcasting</fullName>
+                <default>false</default>
+                <label>Media &amp; Broadcasting</label>
+            </value>
+            <value>
+                <fullName>Metals &amp; Metal Products</fullName>
+                <default>false</default>
+                <label>Metals &amp; Metal Products</label>
+            </value>
+            <value>
+                <fullName>Mining &amp; Extraction</fullName>
+                <default>false</default>
+                <label>Mining &amp; Extraction</label>
+            </value>
+            <value>
+                <fullName>Miscellaneous Manufacturing</fullName>
+                <default>false</default>
+                <label>Miscellaneous Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Printing &amp; Publishing</fullName>
+                <default>false</default>
+                <label>Printing &amp; Publishing</label>
+            </value>
+            <value>
+                <fullName>Property Services</fullName>
+                <default>false</default>
+                <label>Property Services</label>
+            </value>
+            <value>
+                <fullName>Public Administration Education Health Social Services</fullName>
+                <default>false</default>
+                <label>Public Administration Education Health Social Services</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Textiles &amp; Clothing Manufacturing</fullName>
+                <default>false</default>
+                <label>Textiles &amp; Clothing Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Transport Freight and Storage</fullName>
+                <default>false</default>
+                <label>Transport Freight and Storage</label>
+            </value>
+            <value>
+                <fullName>Transport Manufacturing</fullName>
+                <default>false</default>
+                <label>Transport Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Travel Personal &amp; Leisure</fullName>
+                <default>false</default>
+                <label>Travel Personal &amp; Leisure</label>
+            </value>
+            <value>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+                <label>Utilities</label>
+            </value>
+            <value>
+                <fullName>Waste Management &amp; Treatment</fullName>
+                <default>false</default>
+                <label>Waste Management &amp; Treatment</label>
+            </value>
+            <value>
+                <fullName>Wholesale</fullName>
+                <default>false</default>
+                <label>Wholesale</label>
+            </value>
+            <value>
+                <fullName>Wood Furniture &amp; Paper Manufacturing</fullName>
+                <default>false</default>
+                <label>Wood Furniture &amp; Paper Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Automobile &amp; Transportation</fullName>
+                <default>false</default>
+                <label>Automobile &amp; Transportation</label>
+            </value>
+            <value>
+                <fullName>Seasonal Fruit Non Frozen</fullName>
+                <default>false</default>
+                <label>Seasonal Fruit Non Frozen</label>
+            </value>
+            <value>
+                <fullName>Scrap Metal</fullName>
+                <default>false</default>
+                <label>Scrap metal</label>
+            </value>
+            <value>
+                <fullName>Resin &amp; Plastic Scrap</fullName>
+                <default>false</default>
+                <label>Resin &amp; Plastic Scrap</label>
+            </value>
+            <value>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+                <label>Pharmaceuticals</label>
+            </value>
+            <value>
+                <fullName>Other Non Frozen</fullName>
+                <default>false</default>
+                <label>Other Non Frozen</label>
+            </value>
+            <value>
+                <fullName>Other Frozen</fullName>
+                <default>false</default>
+                <label>Other Frozen</label>
+            </value>
+            <value>
+                <fullName>Misc Manufactured Goods</fullName>
+                <default>false</default>
+                <label>Misc Manufactured Goods</label>
+            </value>
+            <value>
+                <fullName>Non Frozen</fullName>
+                <default>false</default>
+                <label>Non Frozen</label>
+            </value>
+            <value>
+                <fullName>Meat Frozen</fullName>
+                <default>false</default>
+                <label>Meat Frozen</label>
+            </value>
+            <value>
+                <fullName>Marbel, Tiles &amp; Stone Articals</fullName>
+                <default>false</default>
+                <label>Marbel, Tiles &amp; Stone Articals</label>
+            </value>
+            <value>
+                <fullName>Garments, Apparel &amp; Used Clothing</fullName>
+                <default>false</default>
+                <label>Garments, Apparel &amp; Used Clothing</label>
+            </value>
+            <value>
+                <fullName>Frozen Fish &amp; Seafood</fullName>
+                <default>false</default>
+                <label>Frozen Fish &amp; Seafood</label>
+            </value>
+            <value>
+                <fullName>Banana, Pineapples, Papaya</fullName>
+                <default>false</default>
+                <label>Banana, Pineapples, Papaya</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

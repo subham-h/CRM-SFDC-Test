@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BillingCity_Not_Valid</fullName>
+    <active>true</active>
+    <description>#RQ-004653
+To ensure the value in the billing city matches an entry in the geography table</description>
+    <errorConditionFormula>RecordType.DeveloperName != &quot;Concern_Account&quot;
+&amp;&amp; RecordType.DeveloperName != &quot;Client_Account&quot;
+&amp;&amp; NOT(BillingCity = VLOOKUP($ObjectType.Geography__c.Fields.Name, $ObjectType.Geography__c.Fields.Name, BillingCity))
+&amp;&amp; !$Setup.Validation_Rules_Bypass__c.Active__c</errorConditionFormula>
+    <errorMessage>The city that has been entered does not match against a valid City that exists within Maersk &quot;Geography Master Data&quot;.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsDuplicate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To Make the Contact Unique, with given Email Id, across all Contacts &amp; Leads.
+
+#RQ-000606 : Field is made not visible by editing Field Level Security and removing from Page Layout.</description>
+    <label>Mark as Duplicate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

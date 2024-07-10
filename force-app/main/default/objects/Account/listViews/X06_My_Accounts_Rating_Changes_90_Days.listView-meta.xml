@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X06_My_Accounts_Rating_Changes_90_Days</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>06. My Accounts Rating Changes(90 Days)</label>
+    <language>en_US</language>
+</ListView>

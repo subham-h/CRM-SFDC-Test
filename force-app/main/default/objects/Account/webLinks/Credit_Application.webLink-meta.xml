@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Application</fullName>
+    <availability>online</availability>
+    <description>RQ-004369 - Credit Application link on the customer account page</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Credit Application</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!IF( CONTAINS($Api.Partner_Server_URL_260, &apos;maersk.my.salesforce.com&apos;), URLFOR($Label.SAP_Credit_Application_Prod, null), URLFOR($Label.SAP_Credit_Application_Test, null) )}</url>
+</WebLink>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Role_Other_is_required</fullName>
+    <active>true</active>
+    <description>Job Role(Other) is required when Role is selected as &quot;Other&quot;</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+AND(AND ( 
+ISPICKVAL( Job_Role__c , &quot;Other&quot;), 
+ISBLANK(Job_Role_Other__c ) 
+))</errorConditionFormula>
+    <errorDisplayField>Job_Role_Other__c</errorDisplayField>
+    <errorMessage>Job Role(Other) is applicable only if Job Role is chosen as &quot;Other&quot;</errorMessage>
+</ValidationRule>

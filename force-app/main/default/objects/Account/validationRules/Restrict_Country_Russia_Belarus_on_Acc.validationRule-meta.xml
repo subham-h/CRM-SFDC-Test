@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Country_Russia_Belarus_on_Acc</fullName>
+    <active>true</active>
+    <description>Validation rule to prevent draft / non shipping party  account creation or updation when country is Russia/Belarus</description>
+    <errorConditionFormula>AND(
+    !$Setup.Validation_Rules_Bypass__c.Active__c,
+    OR(
+        RecordType.DeveloperName = &quot;Draft_Account&quot;,
+        RecordType.DeveloperName = &quot;X3rd_Party_Account&quot;
+    ),
+    OR(
+       ISNEW(),
+       ISCHANGED( Country__c ),
+       ISCHANGED( BillingCountry ),
+       ISCHANGED( ShippingCountry )
+    ),
+    OR(
+       AND(
+          CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, Country__r.Name ),
+          !ISBLANK(Country__c)
+          ),
+       AND(
+           CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, BillingCountry ),
+          !ISBLANK( BillingCountry )
+          ),
+       AND(
+           CONTAINS( $CustomMetadata.General_Key_Value_Configurations__mdt.Country_Restriction.First_Field_Value__c, ShippingCountry ),
+          !ISBLANK( ShippingCountry )
+          )
+     )
+)</errorConditionFormula>
+    <errorMessage>As per company policy no new customer or prospect accounts can be created for Russia and Belarus</errorMessage>
+</ValidationRule>

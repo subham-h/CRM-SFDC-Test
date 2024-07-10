@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SCL_All_Key_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Key_Account_Type__c</columns>
+    <columns>SCL_Account_Owner__c</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>Country__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Key_Account_Type__c</field>
+        <operation>equals</operation>
+        <value>Key</value>
+    </filters>
+    <label>SCL - All Key Accounts</label>
+    <language>en_US</language>
+    <sharedTo></sharedTo>
+</ListView>
