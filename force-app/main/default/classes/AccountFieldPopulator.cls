@@ -12,9 +12,14 @@
 *7.0       SFSE-14282  23-Feb-2023 Samar@Maersk                Moving Account Process Builder to Trigger.
 */
 
-public class AccountFieldPopulator {
-    
-    // RQ-005400. Populate the BillingState if the BillingState's Parent Geo matches with Account Country.
+public class AccountFieldPopulator { // Pankajam Test changes for conflcits
+    // Pankajam Test changes for conflcits
+    // Pankajam Test changes for conflcits
+    // Pankajam Test changes for conflcits
+    // Pankajam Test changes for conflcits
+    // Pankajam Test changes for conflcits
+
+    // RQ-005400. Populate the BillingState if the BillingState's Parent Geo matches with Account Country.// Pankajam Test changes for conflcits
     public static void populateBillingState(list<Account> lstAccounts, set<String> setBillingCities) {
         if(Generic_TriggerHandler.validateRunForMethod('AccountFieldPopulator.populateBillingState()', 1)) {
             try {
