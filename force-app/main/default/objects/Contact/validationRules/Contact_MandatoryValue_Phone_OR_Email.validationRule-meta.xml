@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_MandatoryValue_Phone_OR_Email</fullName>
+    <active>true</active>
+    <description>#RQ-000604 - Case Management Phase 1 
+Either of the 3 phone numbers / Email field should be provided while creating a Contact.
+#RQ-000932:Added the condition for By passing the validation rule</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+AND(ISBLANK(Phone),ISBLANK(OtherPhone),ISBLANK(MobilePhone), ISBLANK(Email)) 
+&amp;&amp; ISPICKVAL( Contact_Status__c, &apos;Active&apos;)
+&amp;&amp; RecordType.DeveloperName  &lt;&gt; &apos;Customer_Contact&apos;</errorConditionFormula>
+    <errorMessage>Please add a phone number or email address for this Contact, in order to save this record.</errorMessage>
+</ValidationRule>

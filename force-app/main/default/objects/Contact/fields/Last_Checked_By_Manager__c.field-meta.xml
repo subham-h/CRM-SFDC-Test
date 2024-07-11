@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Checked_By_Manager__c</fullName>
+    <description>#RQ-002769</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Manager of the User who last checked the contact details of this record.</inlineHelpText>
+    <label>Last Checked By Manager</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

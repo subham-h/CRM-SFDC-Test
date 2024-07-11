@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X04_My_Accounts_with_Activity_30_days</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>SCV_Status__c</columns>
+    <columns>SCL_Account_Owner__c</columns>
+    <columns>ACCOUNT.ADDRESS1_ZIP</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>Activity_Monitor__c</columns>
+    <columns>Concern_Code__c</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <label>04. My Accounts with Activity (30 days)</label>
+</ListView>

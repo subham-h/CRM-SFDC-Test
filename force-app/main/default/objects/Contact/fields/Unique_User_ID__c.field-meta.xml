@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_User_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>#Case_Mgt_v1:
+Unique user ID of 6 characters, available only for Internal Contacts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Unique 6-digit ID, in the format of 3 alphabet and 3 numeric digits</inlineHelpText>
+    <label>Unique User ID</label>
+    <length>6</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

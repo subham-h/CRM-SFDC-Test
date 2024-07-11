@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_Length_Validation_Unique_DlngCode</fullName>
+    <active>true</active>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+NOT(RecordType.Name = &quot;Internal Contact&quot;)&amp;&amp; 
+OR(
+    (NOT(ISBLANK(Phone)) &amp;&amp;
+    (VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Name, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(Phone, 0, (FIND(&quot; &quot;, Phone)+3))) == &apos;&apos;) &amp;&amp; 
+    ((LEN(Phone) - FIND(&quot; &quot;, Phone )) &lt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Min_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;Phone&quot;&amp;LEFT(Phone,FIND(&quot; &quot;, Phone)-1)) ||
+    (LEN(Phone) - FIND(&quot; &quot;, Phone )) &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;Phone&quot;&amp;LEFT(Phone,FIND(&quot; &quot;, Phone)-1)))),
+
+    (NOT(ISBLANK(MobilePhone)) &amp;&amp;
+    (VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Name, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(MobilePhone, 0, (FIND(&quot; &quot;, MobilePhone)+3))) == &apos;&apos;) &amp;&amp;
+    ((LEN(MobilePhone) - FIND(&quot; &quot;, MobilePhone)) &lt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Min_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;MobilePhone&quot;&amp;LEFT(MobilePhone,FIND(&quot; &quot;, MobilePhone)-1)) ||
+    (LEN(MobilePhone) - FIND(&quot; &quot;, MobilePhone)) &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;MobilePhone&quot;&amp;LEFT(MobilePhone,FIND(&quot; &quot;, MobilePhone)-1)))),
+    
+    (NOT(ISBLANK(Fax)) &amp;&amp; 
+    (VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Name, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(Fax, 0, (FIND(&quot; &quot;, Fax)+3))) == &apos;&apos;) &amp;&amp; 
+    ((LEN(Fax) - FIND(&quot; &quot;, Fax)) &lt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Min_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name,&quot;Fax&quot;&amp; LEFT(Fax,FIND(&quot; &quot;, Fax)-1)) ||
+    (LEN(Fax) - FIND(&quot; &quot;, Fax)) &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name,  &quot;Fax&quot;&amp; LEFT(Fax,FIND(&quot; &quot;, Fax)-1)))),
+    
+    (NOT(ISBLANK(OtherPhone)) &amp;&amp;
+    (VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Name, $ObjectType.Field_Validation_Rule__c.Fields.Name, MID(OtherPhone, 0, (FIND(&quot; &quot;, OtherPhone)+3))) == &apos;&apos;) &amp;&amp; 
+    ((LEN(OtherPhone) - FIND(&quot; &quot;, OtherPhone)) &lt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Min_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;OtherPhone&quot;&amp;LEFT(OtherPhone,FIND(&quot; &quot;, OtherPhone)-1)) ||
+    (LEN(OtherPhone) - FIND(&quot; &quot;, OtherPhone)) &gt; VLOOKUP($ObjectType.Field_Validation_Rule__c.Fields.Max_Length__c, $ObjectType.Field_Validation_Rule__c.Fields.Name, &quot;OtherPhone&quot;&amp;LEFT(OtherPhone,FIND(&quot; &quot;, OtherPhone)-1))))
+)</errorConditionFormula>
+    <errorMessage>The number you have entered in one of the fields &apos;Office Phone&apos;, &apos;Other Phone&apos;, &apos;Mobile&apos; or &apos;Fax&apos; do not match the required length based on the country code you have entered. Please review the Phone Length SOP document in the &quot;Custom Links&quot; section below.</errorMessage>
+</ValidationRule>

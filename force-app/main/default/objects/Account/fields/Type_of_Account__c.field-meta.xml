@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Account__c</fullName>
+    <description>#Case_Mgt_v1: Field used on the publisher layout to select the record type. This field in turn used update the record type of the account through WF&apos;s</description>
+    <label>Type of Account</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Non-shipping Party Account</fullName>
+                <default>false</default>
+                <label>Non-shipping Party Account</label>
+            </value>
+            <value>
+                <fullName>Draft Account</fullName>
+                <default>false</default>
+                <label>Draft Account</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

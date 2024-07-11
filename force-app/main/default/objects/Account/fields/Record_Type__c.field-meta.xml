@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Type__c</fullName>
+    <description>#RQ-000235 - Help text added.</description>
+    <externalId>false</externalId>
+    <formula>IF($RecordType.DeveloperName ==&apos;Client_Account&apos;,&apos;Client Account&apos;,IF($RecordType.DeveloperName ==&apos;Concern_Account&apos;,&apos;Concern Account&apos;,IF($RecordType.DeveloperName ==&apos;Draft_Account&apos;,&apos;Draft Account&apos;,IF($RecordType.DeveloperName ==&apos;Unassigned&apos;,&apos;Unassigned&apos;,&apos;Client Account&apos;))))</formula>
+    <inlineHelpText>Concern Account, Client Account, Draft Account, Unassigned.</inlineHelpText>
+    <label>Record Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

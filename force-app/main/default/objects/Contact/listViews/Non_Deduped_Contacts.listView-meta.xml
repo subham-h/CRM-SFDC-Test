@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Deduped_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Deduped_Contact__c</columns>
+    <columns>Deduped_Date__c</columns>
+    <columns>Liner_Brand__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Deduped_Contact__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>8/1/2016 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>lessThan</operation>
+        <value>9/6/2016 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Internal Global</value>
+    </filters>
+    <label>Non Deduped Contacts</label>
+    <language>en_US</language>
+</ListView>

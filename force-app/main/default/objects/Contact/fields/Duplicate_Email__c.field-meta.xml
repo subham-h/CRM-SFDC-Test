@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Email__c</fullName>
+    <description>+++ INTEGRATION: MASTER DATA +++ 
+Do not change this field without reviewing impact with master data integration 
+#RQ-000777 - Case Management Phase 1 - This field is used to store duplicate email information.
+#RQ-004927- Updated help text.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this field to store a alternative email address.</inlineHelpText>
+    <label>Other Email</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

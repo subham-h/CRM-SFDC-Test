@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MCC_Owner_Text__c</fullName>
+    <description>MCC Owner is copied to this field on cut off date i.e. when sales rep might have changed on client for SIP Actuals processing.</description>
+    <externalId>false</externalId>
+    <label>MCC Owner Text</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

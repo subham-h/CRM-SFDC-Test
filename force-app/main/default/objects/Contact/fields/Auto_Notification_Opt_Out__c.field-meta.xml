@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Notification_Opt_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>#Case_Mgt_v1: Auto notification emails opt out option provided to all Contacts
+RQ-004381 : Contact page layout optimisation</description>
+    <inlineHelpText>This opt-out applies to the Case acknowledgement email sent upon case creation. Please tick this box if the customer does not wish to receive a case creation acknowledgement email.</inlineHelpText>
+    <label>Case Mgt Auto-Notification Opt Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

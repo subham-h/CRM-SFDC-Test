@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Concern_Code__c</fullName>
+    <description>The Parent Accounts SCV Code if this is not a concern. If this account is a concern then use this SCV code.</description>
+    <externalId>false</externalId>
+    <formula>IF ($RecordType.DeveloperName = &apos;Concern_Account&apos;,  SCV_Code__c  , Parent.SCV_Code__c)</formula>
+    <inlineHelpText>The Parent Account&apos;s SCV Code.</inlineHelpText>
+    <label>Concern Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

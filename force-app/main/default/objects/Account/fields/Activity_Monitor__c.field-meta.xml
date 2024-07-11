@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Monitor__c</fullName>
+    <description>If there has been no activity on the account in the last 30 days set alert flag.
+#RQ-000235 - Help text added.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISNULL(Last_Activity_Date__c) , 
+ IMAGE(&quot;/resource/Red_alert&quot;,&quot;No activity recorded yet.&quot;)+&quot; No Activity Recorded Yet.&quot;
+,IF( Last_Activity_Date__c+30 &lt; TODAY() ,  IMAGE(&quot;/resource/Red_alert&quot;,&quot;No activity within last 30 days&quot;)+&quot; Activity Past Last 30 Days&quot; , IMAGE(&quot;/resource/Green_Tick&quot;,&quot;Okay&quot;) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Red flag will be displayed if no Events or Tasks have been created for this Account for last 30 days.</inlineHelpText>
+    <label>Activity Monitor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

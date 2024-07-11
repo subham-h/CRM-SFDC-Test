@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>English_name_fields_contain_only_ASCII</fullName>
+    <active>true</active>
+    <description>FirstName-English and LastName-English fields does not contain non ASCII characters.</description>
+    <errorConditionFormula>!$Setup.Validation_Rules_Bypass__c.Active__c 
+&amp;&amp; 
+OR(REGEX(First_Name_English__c ,&quot;[\\p{ASCII}]*[^\\p{ASCII}]+[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*+[[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*]*&quot;),REGEX(Last_Name_English__c ,&quot;[\\p{ASCII}]*[^\\p{ASCII}]+[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*+[[\\p{ASCII}]*[^\\p{ASCII}]*[\\p{ASCII}]*]*&quot;))</errorConditionFormula>
+    <errorMessage>You are not allowed to enter special or accented characters into the &quot;First Name - English&quot; or &quot;Last Name - English&quot; fields. To save the contact you need to remove them.</errorMessage>
+</ValidationRule>

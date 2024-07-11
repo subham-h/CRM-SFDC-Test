@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Master_Data</fullName>
+    <availability>online</availability>
+    <description>RQ-004164: Edit Account detail in CMD.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Edit Master Data</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!IF( CONTAINS($Api.Partner_Server_URL_260, &apos;maersk.my.salesforce.com&apos;) , URLFOR($Label.CMD_Prod_URL + &apos;/md/customer/#customer/results/&apos; + Account.Customer_Code__c, null) , 
+URLFOR($Label.CMD_Test_URL + &apos;/cmdfrontier/#customer/results/&apos; + Account.Customer_Code__c, null) )}</url>
+</WebLink>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Fields_for_Competitor_RecordTyp</fullName>
+    <active>true</active>
+    <description>Validate Street,City and Postal Code for Competitor RecordType</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &quot;Competitor_Account&quot;,
+!$Setup.Validation_Rules_Bypass__c.Active__c,
+OR(
+ISBLANK( BillingStreet),
+ISBLANK( BillingCity),
+ISBLANK( BillingPostalCode)
+)
+)</errorConditionFormula>
+    <errorMessage>Street,City and Postal Code Cannot be empty for Competior record type .</errorMessage>
+</ValidationRule>

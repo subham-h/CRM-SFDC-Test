@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Accounts_GCASAL</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Customer_Code__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Concern_Code__c</columns>
+    <columns>Represents_Concern__c</columns>
+    <columns>SCV_Status__c</columns>
+    <columns>Value_Proposition__c</columns>
+    <columns>Vertical__c</columns>
+    <columns>Attractiveness__c</columns>
+    <columns>Customer_Role__c</columns>
+    <columns>Is_Opportunity__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Current_User_Account_Owner__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My Accounts-GCASAL</label>
+</ListView>

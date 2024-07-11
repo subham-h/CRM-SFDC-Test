@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Current_User_Account_Owner__c</fullName>
+    <description>#Safmarine United, #PR-0047: added filter condition for MCC account owner, #PR-0054:Added filter condition for MLL owner. 
+This formula is to evaluate if the current user is either the MSL Account Owner or the SCL Account Owner. This can be used on Filters and Reports to dynamically mimic the &quot;My Accounts&quot; filter.</description>
+    <formula>( $User.Id = MSL_Account_Owner__c ) || ( $User.Id = SEA_Account_Owner__c ) || ( $User.Id = MCC_Account_Owner__c || $User.Id = MLL_Account_Owner__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Current User Account Owner?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

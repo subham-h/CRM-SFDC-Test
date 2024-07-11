@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEA_Account_Owner_Maersk_Id__c</fullName>
+    <description>Created to hold Maersk User ID of respective Linerbrand owners - #RQ-007146</description>
+    <externalId>false</externalId>
+    <label>SEA Account Owner  Maersk Id</label>
+    <length>15</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_NL_JDK_POP</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SCV_Code__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Seago_Account_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Seago_Account_Owner__c</field>
+        <operation>contains</operation>
+        <value>Patricia Opdebeeck,Jouk de Kovel</value>
+    </filters>
+    <label>Accounts NL JDK / POP</label>
+    <language>en_US</language>
+</ListView>

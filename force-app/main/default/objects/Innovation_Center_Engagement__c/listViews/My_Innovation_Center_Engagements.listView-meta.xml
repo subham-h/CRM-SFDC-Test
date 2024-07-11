@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Innovation_Center_Engagements</fullName>
+    <columns>NAME</columns>
+    <columns>Customer__c</columns>
+    <columns>Type_of_Audience__c</columns>
+    <columns>Location__c</columns>
+    <columns>Date_of_Visit__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Innovation Center Engagements</label>
+</ListView>

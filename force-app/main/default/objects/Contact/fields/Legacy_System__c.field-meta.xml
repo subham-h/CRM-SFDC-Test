@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legacy_System__c</fullName>
+    <description>#Safmarine_United
+To store the name of the system from where this record was migrated.</description>
+    <label>Legacy System</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Safmarine</fullName>
+                <default>false</default>
+                <label>Safmarine</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

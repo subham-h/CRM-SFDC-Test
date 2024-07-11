@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OTS_Assigned_Accounts__c</fullName>
+    <description>This will identify the OTS accounts which are assigned to specific person</description>
+    <formula>AND(NOT(ISBLANK(Sales_Group__c)),CONTAINS(TEXT(MSL_Account_Owner__r.Sales_Job_Function__c ), &apos;One Team Sales&apos;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>OTS Assigned Accounts</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

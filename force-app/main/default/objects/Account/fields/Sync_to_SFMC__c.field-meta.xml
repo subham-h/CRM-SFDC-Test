@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_to_SFMC__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>RQ-013401 : Marketing Cloud Account/Contact Sync flag</description>
+    <label>Sync to SFMC</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
