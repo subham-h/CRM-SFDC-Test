@@ -16,8 +16,11 @@ public class Accept_CaseController {
     public Accept_CaseController(ApexPages.StandardSetController standardSetController){
         acceptMessages = ' ';
         this.standardSetController = standardSetController;
-        System.debug('Aditya feature 1 chnages to sit');
+        System.debug('feature2 chnages');
     }
+
+
+    
     public void getMessage(){
         List<Case> listViewRecords =(List<Case>) standardSetController.getRecords();
         
