@@ -29,7 +29,7 @@ public class Accept_CaseController {
         { 
             lstSelectedRecords.put(objCS.Id, objCS);
         }  
-        
+        System.debug('Aditya feature 2 changes '+lstSelectedRecords);
         String rejectedCaseNumbers = '';
         List<Case> casesToUpdate = new List<Case>();
         String acceptedCaseNumbers = '';
