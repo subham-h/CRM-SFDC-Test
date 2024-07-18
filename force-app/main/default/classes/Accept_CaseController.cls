@@ -16,7 +16,11 @@ public class Accept_CaseController {
     public Accept_CaseController(ApexPages.StandardSetController standardSetController){
         acceptMessages = ' ';
         this.standardSetController = standardSetController;
+        System.debug('feature2 chnages');
     }
+
+
+    
     public void getMessage(){
         List<Case> listViewRecords =(List<Case>) standardSetController.getRecords();
         
@@ -29,7 +33,7 @@ public class Accept_CaseController {
         { 
             lstSelectedRecords.put(objCS.Id, objCS);
         }  
-        
+        System.debug('Aditya feature 2 changes '+lstSelectedRecords);
         String rejectedCaseNumbers = '';
         List<Case> casesToUpdate = new List<Case>();
         String acceptedCaseNumbers = '';
