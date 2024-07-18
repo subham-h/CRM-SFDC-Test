@@ -1106,6 +1106,7 @@ opportunity.addError(errorMessage);
             }         
         }
     }
+    
     // PK_C_Feature 2 - testing the conflcit
     // PK_C_Feature 2 - testing the conflcit
    // PK_C_Feature 2 - testing the conflcit
