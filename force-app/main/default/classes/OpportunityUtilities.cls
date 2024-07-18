@@ -42,7 +42,8 @@
 * 45.0		 13-06-2024		 Aditi@Maersk						 SFSE-15173		 Handling exception on DML update listOpptyWithCloneSourceId
 * 46.0      27-Jun-2024     Shashi@maersk                       SFSE-15486      To Allow close date change on unlocked oppty for Clerical Error reason for unlocking.
  * 47.0      03-July-2024    Shilpa@Maersk                       SFSE-15095      Added logic to validate Estimated Footprint Field for MCL Product.
-*/ 
+// PK_C_Feature 2 - // PK_C_Feature 2 - testing the conflcit
+ */ 
 
 public class OpportunityUtilities {
     public static Boolean firstRunComplete = false;
@@ -1105,5 +1106,9 @@ opportunity.addError(errorMessage);
             }         
         }
     }
+    // PK_C_Feature 2 - testing the conflcit
+    // PK_C_Feature 2 - testing the conflcit
+   // PK_C_Feature 2 - testing the conflcit
+  // PK_C_Feature 2 - testing the conflcit
 
 }
