@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Path to the userinfo file
-USERINFO_FILE="userinfo/userinfo.txt"
+USERINFO_FILE="local_config/userinfo.txt"
 
 # Check if the userinfo file exists
 if [ ! -f "$USERINFO_FILE" ]; then

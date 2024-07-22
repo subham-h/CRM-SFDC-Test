@@ -3,7 +3,7 @@
 # For useful gitignore templates see: https://github.com/github/gitignore
 
 # User details
-userinfo/userinfo.txt
+local_config/userinfo.txt
 
 # Salesforce cache
 .sf/
