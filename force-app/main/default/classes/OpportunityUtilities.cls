@@ -44,6 +44,9 @@
  * 47.0      03-July-2024    Shilpa@Maersk                       SFSE-15095      Added logic to validate Estimated Footprint Field for MCL Product.
 //Feature_PKA2 Testing
 //Feature_PKA2 Testing
+PK Test FEature3 conflcits
+// PK_C_Feature 2 - // PK_C_Feature 2 - testing the conflcit
+This is test comment - this is the change for conflict PK_c_Feature1
  */ 
 
 public class OpportunityUtilities {
@@ -1112,5 +1115,25 @@ opportunity.addError(errorMessage);
     //Feature_PKA2 Testing
     //Feature_PKA2 Testing
 
+
+    // PK Test FEature3 conflcits
+    // PK Test FEature3 conflcits
+    // PK Test FEature3 conflcits
+    // PK Test FEature3 conflcits
+    
+    // PK_C_Feature 2 - testing the conflcit
+    // PK_C_Feature 2 - testing the conflcit
+   // PK_C_Feature 2 - testing the conflcit
+  // PK_C_Feature 2 - testing the conflcit
+
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
+    // this is the change for conflict PK_c_Feature1
 
 }

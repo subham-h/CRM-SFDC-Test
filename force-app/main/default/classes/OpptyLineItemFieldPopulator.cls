@@ -6,7 +6,7 @@
  * 1.0      #RQ-003743  04-May-2016  Madhava.kotte@ust-global.com  Created for implementing CBO (Centralized By Org) trigger architecture.
  * 4.0      #RQ-009597  26/11/2018   Sidhartha Mohapatra           Removing auto creation of Unassigned Product and updating FFE
  * 5.0		#RQ-013090  17/03/2020	 Meghana@ust				   Method addded to update Amend Quantity
- *                                  
+ *   this is the change for PK_c_Feature1 non conflcit                                
  */
 public class OpptyLineItemFieldPopulator{
 
@@ -49,4 +49,10 @@ public class OpptyLineItemFieldPopulator{
         }
         system.debug('@@@ lstOli_ProductOwnerTarget '+ lstOli_ProductOwnerTarget);
     }
+        // this is the change for PK_c_Feature1 non conflcit
+     // this is the change for PK_c_Feature1 non conflcit
+      // this is the change for PK_c_Feature1 non conflcit
+       // this is the change for PK_c_Feature1 non conflcit
+        // this is the change for PK_c_Feature1 non conflcit
+         // this is the change for PK_c_Feature1 non conflcit
 }
