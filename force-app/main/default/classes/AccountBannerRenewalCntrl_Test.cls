@@ -16,6 +16,7 @@ public class AccountBannerRenewalCntrl_Test {
                 maerskLineUser.CM_Visibility__c='Single Carrier';
                 insert maerskLineUser;
             }  
+            System.debug('Aditya feature 1 changes :'+maerskLineUser);
             // Create opportunities using TestBusinessHelper
             List<String> recordTypes = new List<String>{'ShippingCargoServices','ShippingCargoServices','ShippingCargoServices','Quarterly_Deal'};
             List<Opportunity> lstopp = TestBusinessHelper.createOpportunities(clientAcc, contact, maerskLineUser, recordTypes, BrandUtilities.MAERSKLINE, true);
