@@ -15,7 +15,7 @@
  * 14.0			SFSE-9417		18-Oct-2022		Kiran@Maersk				Adding VR to stop creatining OLI if Opportunity approval status is Approved Solution Gate and StageName is Quoting
  * 15.0         SFSE-9824       16-Nov-2022     Arpitha@Maersk              VR added as part of SFSE-9417 is modified to consider only OMEP Products.
  * 16.0			SFSE-10967		28-Apr-2023		Kiran@Maersk				Fix for CL product Annualized gross profit update
-
+// Feature_PKA1 chagnes
  */
 public class OpptyLineItemTriggerHandler extends TriggerHandler{
     public map<Id, OpportunityLineItem> newMap;
@@ -201,5 +201,8 @@ public class OpptyLineItemTriggerHandler extends TriggerHandler{
             OpptyLineItemUtilities.validateOpptyPendingApprovalProcesses(oppLineItmRecordSelector.oliOpptyWithPendingApprovals, null);
         }
     }
+    // Feature_PKA1 chagnes
+    // Feature_PKA1 chagnes
+    // Feature_PKA1 chagnes
    
 }
