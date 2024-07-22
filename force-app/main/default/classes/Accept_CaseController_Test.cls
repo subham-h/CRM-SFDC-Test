@@ -19,6 +19,7 @@ public class Accept_CaseController_Test {
         list<Case> lstCases = CaseData_Test.lstCases;
         list<Case> lstUpdateCase = new list<Case>();
         
+        
         for(Case newCase : lstCases ) {
             newCase.Status ='Triaged';
             newCase.Product__c = 'Ocean';
