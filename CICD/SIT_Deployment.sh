@@ -5,17 +5,11 @@ YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-# Path to the userinfo file
-USERINFO_FILE="local_config/userinfo.txt"
-
-# Check if the userinfo file exists
-if [ ! -f "$USERINFO_FILE" ]; then
-  echo -e "${RED}Error: User info file not found at $USERINFO_FILE${NC}"
+# Check if GITHUB_TOKEN is set
+if [ -z "$GITHUB_CICD_POC_TOKEN" ]; then
+  echo -e "${RED}Error: GITHUB_TOKEN environment variable is not set.${NC}"
   exit 1
 fi
-# Read GitHub token from userinfo.txt
-
-GITHUB_TOKEN=$(grep token "$USERINFO_FILE" | cut -d ':' -f2 | xargs)
 
 # Get the current branch name
 current_branch=$(git symbolic-ref --short HEAD)
@@ -59,7 +53,7 @@ echo -e "${GREEN} No Conflcits, merge completed successfully.${NC}"
 echo -e "${YELLOW} Creating PR from '$current_branch' branch to 'sit' branch.${NC}"
 
 # Create a PR from the current branch to the sit branch
-PR_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+PR_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_CICD_POC_TOKEN" \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Content-Type: application/json" \
