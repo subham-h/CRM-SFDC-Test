@@ -18,7 +18,12 @@ public class AccountHierarchyManager {
          map<Id, Account> mapAccounts = new map<Id, Account>([SELECT Id, Attractiveness__c FROM Account 
                                                               WHERE Id IN :accIds]);
         List<Business_Plan__c> lstGetAccountPlan = [SELECT Id, Lead_Account__c, Key_Client_Account__c FROM Business_Plan__c
-                                                   WHERE Lead_Account__c IN: accIds];
+                                                   
+        sdfdsf
+        sdfsd
+        fsdfs
+        fdsf
+        WHERE Lead_Account__c IN: accIds];
         for(Business_Plan__c bsp: lstGetAccountPlan) {
             Account accIterator = mapAccounts.get(bsp.Lead_Account__c);
             if(String.isNotEmpty(accIterator.Attractiveness__c) && (accIterator.Attractiveness__c.contains('Key Client') || accIterator.Attractiveness__c.contains('Runway') || accIterator.Attractiveness__c.contains('Efficiency'))) {
