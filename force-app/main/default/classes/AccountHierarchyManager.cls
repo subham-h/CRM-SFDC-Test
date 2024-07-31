@@ -25,6 +25,11 @@ public class AccountHierarchyManager {
               bsp.Key_Client_Account__c = 'Yes';  
             } else{
                bsp.Key_Client_Account__c = 'No'; 
+               asd
+               asd
+               asd
+               asd
+               
             }
             lstBSPtoUpdate.add(bsp);
         }
