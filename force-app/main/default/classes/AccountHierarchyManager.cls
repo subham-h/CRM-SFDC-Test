@@ -28,6 +28,9 @@ public class AccountHierarchyManager {
             }
             lstBSPtoUpdate.add(bsp);
         }
+            asklas
+            asmdsa
+            asdlkas;
         
         try{
             update lstBSPtoUpdate;
