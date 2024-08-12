@@ -36,15 +36,8 @@ public class AccountFieldPopulator {
                                                 mapCityNameGeos.put(goeName, new list<Geography__c>{geo});
                                             }
                                         }
-                    //Generic_TriggerHandler.validateRunForMethod SS9
-                    //Generic_TriggerHandler.validateRunForMethod SS10
-                    //Generic_TriggerHandler.validateRunForMethod SS11
-                    //Generic_TriggerHandler.validateRunForMethod SS12
-                    //Generic_TriggerHandler.validateRunForMethod SS13
-                    //Generic_TriggerHandler.validateRunForMethod SS14
-                    //Generic_TriggerHandler.validateRunForMethod SS15
-                    //Generic_TriggerHandler.validateRunForMethod SS16
-                    
+
+                system.debug('chnage 1');
                 for(Account acc : lstAccounts) {
                     String strCityName = acc.BillingCity.toLowerCase();
                     if(mapCityNameGeos.get(strCityName) != null) {
