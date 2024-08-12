@@ -30,6 +30,8 @@ public class AccountFieldPopulator {
                                             }
                                         }
                 
+
+                System.debug('mapCityNameGeos issue 3 chnages::' + mapCityNameGeos);
                 for(Account acc : lstAccounts) {
                     String strCityName = acc.BillingCity.toLowerCase();
                     if(mapCityNameGeos.get(strCityName) != null) {
