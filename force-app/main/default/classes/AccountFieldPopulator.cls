@@ -13,7 +13,14 @@
 */
 
 public class AccountFieldPopulator {
-    
+    //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
     // RQ-005400. Populate the BillingState if the BillingState's Parent Geo matches with Account Country.
     public static void populateBillingState(list<Account> lstAccounts, set<String> setBillingCities) {
         if(Generic_TriggerHandler.validateRunForMethod('AccountFieldPopulator.populateBillingState()', 1)) {
@@ -29,6 +36,7 @@ public class AccountFieldPopulator {
                                                 mapCityNameGeos.put(goeName, new list<Geography__c>{geo});
                                             }
                                         }
+
                 system.debug('chnage 1');
                 for(Account acc : lstAccounts) {
                     String strCityName = acc.BillingCity.toLowerCase();
@@ -62,7 +70,14 @@ public class AccountFieldPopulator {
     // RQ-007146. Populate the Maersk IDs of Liner Brand Owners.
     public static void populateLinerBrandOwnerMIDs(list<Account> lstAccounts,Map<Id,User> linerBrandOwnerDetails) {
         if(Generic_TriggerHandler.validateRunForMethod('AccountFieldPopulator.populateLinerBrandOwnerMIDs()', 1)) {
-            
+        //Generic_TriggerHandler.validateRunForMethod SS1
+        //Generic_TriggerHandler.validateRunForMethod SS2
+        //Generic_TriggerHandler.validateRunForMethod SS3
+        //Generic_TriggerHandler.validateRunForMethod SS4
+        //Generic_TriggerHandler.validateRunForMethod SS5
+        //Generic_TriggerHandler.validateRunForMethod SS6
+        //Generic_TriggerHandler.validateRunForMethod SS7
+        //Generic_TriggerHandler.validateRunForMethod SS8
             try {
                 
                 for (Account newAccount : lstAccounts){
@@ -111,7 +126,14 @@ public class AccountFieldPopulator {
     }
     
     public static void populateAccountAddressArea(list<Account> lstAccounts, Map<Id, Account> mapOldAccounts ) {
-        
+            //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
         Set<Id> setCountryIds = new Set<Id>(); // Store Geography Ids selected in Account
         Account oldAccount;  
         Map<Id, Id> mapCountryToAreaCluster = new Map<Id, Id>(); // Store Mapping between Country to Cluster(BDA) Ids
@@ -198,6 +220,14 @@ public class AccountFieldPopulator {
     
     public static void setRepresentConcern(List<Account> acclist){
         if(!acclist.isEmpty()){
+                //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
             for(Account acc:acclist){
                 acc.Represents_Concern__c = false;
             }
