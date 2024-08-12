@@ -22,6 +22,7 @@ public class AccountFieldPopulator {
                 for(Geography__c geo : [Select Id, Name, Parent_Geography__c, Parent_Geography__r.Name, Parent_Geography__r.Parent_Geography__c
                                         From Geography__c Where Name IN :setBillingCities AND Type_Of_Location__c = 'City' AND (Parent_Geography__r.Type_Of_Location__c = 'State' OR Parent_Geography__r.Type_Of_Location__c = 'Province')]) {
                                             String goeName = geo.Name.toLowerCase();
+                                            system.debug('Chnage2');
                                             if(mapCityNameGeos.containsKey(goeName)) {
                                                 mapCityNameGeos.get(goeName).add(geo);
                                             }
