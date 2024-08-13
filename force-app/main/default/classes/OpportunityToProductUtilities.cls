@@ -2,6 +2,7 @@
 * Revision      Ref Number      Date            Owner                       Description
 * --------      ----------      -----------     -------------------         -------------------------
 * 1.1           SFSE-10984      24-May-2023     Kiran@Maersk                To replicate standard OLI Trigger Logic on cutom object Opportunity Product. Created from OpportunityToLineItemUtilities.
+// PK_C_Feature 2 - testing the non conflict
 */
 public class OpportunityToProductUtilities {
     
@@ -35,5 +36,11 @@ public class OpportunityToProductUtilities {
             ErrorLogger.writeErrors( 'SFDC', 'OpportunityLineItem', 'OpportunityToProductUtilities.AdjustUnassignedProdFEE_ProdSchedule', new list<Exception>{ex}); // #RQ-005636 
         }
     }
+
+    // PK_C_Feature 2 - testing the non conflict
+    // PK_C_Feature 2 - testing the non conflict
+    // PK_C_Feature 2 - testing the non conflict
+    // PK_C_Feature 2 - testing the non conflict
+    
     
 }
