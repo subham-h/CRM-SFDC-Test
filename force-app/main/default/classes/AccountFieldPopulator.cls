@@ -29,7 +29,7 @@ public class AccountFieldPopulator {
                                                 mapCityNameGeos.put(goeName, new list<Geography__c>{geo});
                                             }
                                         }
-                
+                System.debug('mapCityNameGeos: ' + mapCityNameGeos);
                 for(Account acc : lstAccounts) {
                     String strCityName = acc.BillingCity.toLowerCase();
                     if(mapCityNameGeos.get(strCityName) != null) {
