@@ -10,7 +10,7 @@
 
 public class Accept_CaseController {
     ApexPages.StandardSetController standardSetController;
-    
+    //testing
     public string acceptMessages{get;set;}
     
     public Accept_CaseController(ApexPages.StandardSetController standardSetController){
