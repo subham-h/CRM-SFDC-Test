@@ -25,6 +25,7 @@
              newCase.Status ='Triaged';
              newCase.Product__c = 'Ocean';
              newCase.type='Documentation';
+             newCase.Sub_Type__c='Manifest / Customss';
              newCase.Sub_Type__c='Manifest / Customs'; 
              newCase.Reason_For_Case__c ='Advanced Manifest Query';
              newCase.Liner_Brand__c  = BrandUtilities.MAERSKLINE;
