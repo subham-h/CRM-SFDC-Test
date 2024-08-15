@@ -1,0 +1,77 @@
+name: PR Conflict and Merge Notification
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  pull_request_target:
+    types: [closed]
+
+env:
+  TEAMS_WEBHOOK_URL: "https://maersk.webhook.office.com/webhookb2/8fc1bdb1-f009-427c-a815-a97a839c222f@05d75c05-fa1a-42e7-9cf1-eb416c396f2d/IncomingWebhook/7945ca5f18b343a490ea3a07037b05d1/f22be082-b0dc-44a8-908f-75ee164dbbdb"
+
+jobs:
+  check-conflicts:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == false
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check for merge conflicts
+      run: |
+        git fetch origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
+        git checkout ${{ github.event.pull_request.base.ref }}
+        MERGE_OUTPUT=$(git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} 2>&1)
+        if echo "$MERGE_OUTPUT" | grep -q "Automatic merge went well"; then
+          echo "::set-output name=conflict::false"
+        else
+          echo "::set-output name=conflict::true"
+        fi
+      id: conflict-check
+
+    - name: Send conflict notification to Teams
+      if: steps.conflict-check.outputs.conflict == 'true'
+      run: |
+        curl -H 'Content-Type: application/json' -d '{
+          "text": "🚨 Merge conflict detected in PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}.",
+          "sections": [
+            {
+              "activityTitle": "Committer: ${{ github.event.pull_request.user.login }}",
+              "activitySubtitle": "Branch: ${{ github.event.pull_request.head.ref }} ➡️ ${{ github.event.pull_request.base.ref }}"
+            }
+          ],
+          "potentialAction": [
+            {
+              "@type": "OpenUri",
+              "name": "View in GitHub",
+              "targets": [
+                { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" }
+              ]
+            }
+          ]
+        }' $TEAMS_WEBHOOK_URL
+
+  notify-merge:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - name: Send merge notification to Teams
+      run: |
+        curl -H 'Content-Type: application/json' -d '{
+          "text": "✅ PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }} has been successfully merged.",
+          "sections": [
+            {
+              "activityTitle": "Committer: ${{ github.event.pull_request.user.login }}",
+              "activitySubtitle": "Branch: ${{ github.event.pull_request.head.ref }} ➡️ ${{ github.event.pull_request.base.ref }}"
+            }
+          ],
+          "potentialAction": [
+            {
+              "@type": "OpenUri",
+              "name": "View in GitHub",
+              "targets": [
+                { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" }
+              ]
+            }
+          ]
+        }' $TEAMS_WEBHOOK_URL
