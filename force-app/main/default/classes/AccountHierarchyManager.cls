@@ -27,7 +27,14 @@ public class AccountHierarchyManager {
                bsp.Key_Client_Account__c = 'No'; 
             }
             lstBSPtoUpdate.add(bsp);
+            asdasd
+            asdvccxvxc
+            asd
+            asd
         }
+            asklas
+            asmdsa
+            asdlkas;
         
         try{
             update lstBSPtoUpdate;
@@ -38,6 +45,14 @@ public class AccountHierarchyManager {
     
     public static void updateRepresentsConcern(set<Id> setConcernIds, set<Id> setExcludedClientIds) {
         try {
+                //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
             list<Account> lstUpdateClientAccounts = [SELECT Id, Represents_Concern__c FROM Account WHERE ParentId IN :setConcernIds AND Id NOT IN :setExcludedClientIds AND Represents_Concern__c = true];
             if(lstUpdateClientAccounts != null && !lstUpdateClientAccounts.isEmpty()) {
                 for(Account accIterator : lstUpdateClientAccounts) {
@@ -56,6 +71,14 @@ public class AccountHierarchyManager {
     }
 
     public static void updateKeyAttribute(List<Account> setofAccount){
+            //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
         Set<Id> setofConcernId = new Set<Id>();
         List<Account> lstConcernUpdate = new List<Account>();
 
@@ -69,6 +92,14 @@ public class AccountHierarchyManager {
             }
             
             if(!setofConcernId.isEmpty()){
+                    //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
                 Map<Id,Account> mapofConcern = new Map<Id,Account>([SELECT Id,Attractiveness__c,Vertical__c,Industry__c,Value_Proposition__c,Sub_Segment__c,Sales_Channel__c,Customer_Size__c FROM Account WHERE Id IN : setofConcernId]);
                 Account concern;
                 for(Account acc : setofAccount){
@@ -102,6 +133,14 @@ public class AccountHierarchyManager {
 
     // Send To CMD Flag on contact when account recordtype changes from draft to Client Account -  SFSE-14282 
     public static void updateContact(Set<Id> setofAccount){
+            //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
         try{
             if(!setofAccount.isEmpty()){
                 List<Contact> conlist = [SELECT Id, AccountId FROM Contact WHERE AccountId IN : setofAccount];
@@ -115,5 +154,13 @@ public class AccountHierarchyManager {
         }
         
     }
+        //Generic_TriggerHandler.validateRunForMethod SS1
+    //Generic_TriggerHandler.validateRunForMethod SS2
+    //Generic_TriggerHandler.validateRunForMethod SS3
+    //Generic_TriggerHandler.validateRunForMethod SS4
+    //Generic_TriggerHandler.validateRunForMethod SS5
+    //Generic_TriggerHandler.validateRunForMethod SS6
+    //Generic_TriggerHandler.validateRunForMethod SS7
+    //Generic_TriggerHandler.validateRunForMethod SS8
     
 }
