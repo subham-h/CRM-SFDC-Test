@@ -21,11 +21,20 @@ jobs:
       run: |
         git fetch origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
         git checkout ${{ github.event.pull_request.base.ref }}
+        
+        # Attempt to merge and capture the output and exit status
         MERGE_OUTPUT=$(git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} 2>&1)
-        if echo "$MERGE_OUTPUT" | grep -q "Automatic merge went well"; then
+        MERGE_STATUS=$?
+
+        if [ $MERGE_STATUS -eq 0 ]; then
+          echo "Merge was successful with no conflicts."
           echo "::set-output name=conflict::false"
-        else
+        elif echo "$MERGE_OUTPUT" | grep -q "Automatic merge failed"; then
+          echo "Merge failed due to conflicts."
           echo "::set-output name=conflict::true"
+        else
+          echo "An unexpected error occurred during the merge."
+          exit 1
         fi
       id: conflict-check
 
