@@ -16,10 +16,10 @@
          //CaseData_Test.iNumberOfCases = 5; SHASHI 1
          //CaseData_Test.iNumberOfCases = 5; SHASHI 2
          //CaseData_Test.iNumberOfCases = 5; SHASHI 3
-         CaseData_Test.iNumberOfCases = 5;
-         CaseData_Test.createExternalCases();
-         list<Case> lstCases = CaseData_Test.lstCases;
-         list<Case> lstUpdateCase = new list<Case>();
+        //  CaseData_Test.iNumberOfCases = 5;
+        //  CaseData_Test.createExternalCases();
+        //  list<Case> lstCases = CaseData_Test.lstCases;
+        //  list<Case> lstUpdateCase = new list<Case>();
          
          for(Case newCase : lstCases ) {
              newCase.Status ='Triaged';
@@ -33,7 +33,7 @@
              lstUpdateCase.add(newCase);
          }
          update lstUpdateCase;
-
+         System.debug('Added somaejfbsjkzfbkjasde yaml comments');
          System.debug('Added some yaml comments');
      }
      @isTest

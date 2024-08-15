@@ -7,7 +7,7 @@ on:
     types: [closed]
 
 env:
-  TEAMS_WEBHOOK_URL: "https://maersk.webhook.office.com/webhookb2/8fc1bdb1-f009-427c-a815-a97a839c222f@05d75c05-fa1a-42e7-9cf1-eb416c396f2d/IncomingWebhook/7945ca5f18b343a490ea3a07037b05d1/f22be082-b0dc-44a8-908f-75ee164dbbdb"
+  TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
 
 jobs:
   check-conflicts:
@@ -21,21 +21,7 @@ jobs:
       run: |
         git fetch origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
         git checkout ${{ github.event.pull_request.base.ref }}
-        
-        # Attempt to merge and capture the output and exit status
-        MERGE_OUTPUT=$(git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} 2>&1)
-        MERGE_STATUS=$?
-
-        if [ $MERGE_STATUS -eq 0 ]; then
-          echo "Merge was successful with no conflicts."
-          echo "::set-output name=conflict::false"
-        elif echo "$MERGE_OUTPUT" | grep -q "Automatic merge failed"; then
-          echo "Merge failed due to conflicts."
-          echo "::set-output name=conflict::true"
-        else
-          echo "An unexpected error occurred during the merge."
-          exit 1
-        fi
+        git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} || echo "::set-output name=conflict::true"
       id: conflict-check
 
     - name: Send conflict notification to Teams
