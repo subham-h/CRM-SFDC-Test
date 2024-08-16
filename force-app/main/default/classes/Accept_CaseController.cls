@@ -17,6 +17,11 @@ public class Accept_CaseController {
         acceptMessages = ' ';
         this.standardSetController = standardSetController;
         System.debug('feature2 chnages');
+        System.debug('feature2 chnages'); 
+
+
+
+        
     }
 
 
