@@ -10,7 +10,7 @@ jobs:
      if: startsWith(github.head_ref, 'feature/')
      runs-on: ubuntu-latest
 
-    steps:
+     steps:
       - name: Send Teams Notification
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
