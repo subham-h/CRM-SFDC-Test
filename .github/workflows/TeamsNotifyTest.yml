@@ -13,7 +13,6 @@ jobs:
       - name: Send Teams Notification
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        if: startsWith(github.head_ref, 'feature/')
         run: |
           curl -H 'Content-Type: application/json' -d '{
             "title": "GitHub Notification",
