@@ -5,7 +5,6 @@ on:
     types: [opened, closed]
     branches:
       - sit  # The destination (base) branch must be 'main'
-
 jobs:
   notify_teams:
      if: startsWith(github.head_ref, 'feature/')
