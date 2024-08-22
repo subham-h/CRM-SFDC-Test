@@ -8,7 +8,7 @@ on:
 jobs:
   notify_teams:
      if: startsWith(github.head_ref, 'feature/')
-    runs-on: ubuntu-latest
+     runs-on: ubuntu-latest
 
     steps:
       - name: Send Teams Notification
