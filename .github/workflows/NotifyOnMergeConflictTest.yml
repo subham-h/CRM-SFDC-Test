@@ -2,13 +2,12 @@ name: Detect and Handle Merge Conflicts
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened]
     branches:
       - sit  # The destination (base) branch must be 'sit'
 
 jobs:
   check_merge_conflict:
-    if: startsWith(github.head_ref, 'feature/')
     runs-on: ubuntu-latest
 
     steps:
