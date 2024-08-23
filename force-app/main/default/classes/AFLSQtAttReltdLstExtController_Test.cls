@@ -13,7 +13,7 @@
 
 @isTest
 private class AFLSQtAttReltdLstExtController_Test{
-
+    system.debug('##');
     static Qt_Quote__c quoteObj;
     static AFLS_Quote_Attachment__c quoteAttObjSingle;
     static Account accObj = TestBusinessHelper.createAccount('Client_Account', true);//#RQ-0002978;
