@@ -1,46 +1,21 @@
-name: Detect and Handle Merge Conflicts
+name: Send Teams Notification
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, closed]
     branches:
-      - sit  # The destination (base) branch must be 'sit'
-
+      - sit  # The destination (base) branch must be 'main'
 jobs:
-  check_merge_conflict:
-    if: startsWith(github.head_ref, 'feature/')
-    runs-on: ubuntu-latest
+  notify_teams:
+     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Fetch base branch
-        run: git fetch origin ${{ github.base_ref }}
-
-      - name: Attempt to merge base branch
-        id: merge
-        run: |
-          git merge --no-commit --no-ff origin/${{ github.base_ref }} || true
-          
-      - name: Check for merge conflicts
-        id: check_conflict
-        run: |
-          if git ls-files -u | grep -q '.'; then
-            echo "Merge conflict detected"
-            echo "::set-output name=conflict::true"
-          else
-            echo "No merge conflicts detected"
-            echo "::set-output name=conflict::false"
-          fi
-
-      - name: Send Teams notification on merge conflict
-        if: steps.check_conflict.outputs.conflict == 'true'
+     steps:
+      - name: Send Teams Notification
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
           curl -H 'Content-Type: application/json' -d '{
-            "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
-            "themeColor": "FF0000"
+            "title": "GitHub Notification",
+            "text": "A new action has been triggered on branch ${{ github.ref_name }}. Event: ${{ github.event_name }}. Action: ${{ github.event.action }}. Status: ${{ job.status }}.",
+            "themeColor": "0078D7"
           }' $TEAMS_WEBHOOK_URL
