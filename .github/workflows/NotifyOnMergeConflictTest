@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize]
     branches:
-      - sit  # The destination (base) branch must be 'main'
+      - sit  # The destination (base) branch must be 'sit'
 
 jobs:
   check_merge_conflict:
@@ -34,14 +34,13 @@ jobs:
             echo "::set-output name=conflict::false"
           fi
 
-      - name: Send teams notification on  merge conflict
-	if: steps.check_conflict.outputs.conflict == 'true'
-	env:
+      - name: Send Teams notification on merge conflict
+        if: steps.check_conflict.outputs.conflict == 'true'
+        env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
-          echo "Handling merge conflict..."
-	   curl -H 'Content-Type: application/json' -d '{
-            "title": "GitHub Notification",
-            "text": "A new action has been triggered on branch ${{ github.ref_name }}. Event: ${{ github.event_name }}. Action: ${{ github.event.action }}. Status: ${{ job.status }}.",
-            "themeColor": "0078D7"
+          curl -H 'Content-Type: application/json' -d '{
+            "title": "Merge Conflict Detected",
+            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
+            "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
