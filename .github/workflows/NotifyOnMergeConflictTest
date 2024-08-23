@@ -35,9 +35,9 @@ jobs:
           fi
 
       - name: Send teams notification on  merge conflict
+	if: steps.check_conflict.outputs.conflict == 'true'
 	env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        if: steps.check_conflict.outputs.conflict == 'true'
         run: |
           echo "Handling merge conflict..."
 	   curl -H 'Content-Type: application/json' -d '{
