@@ -25,7 +25,8 @@ jobs:
       - name: Check for merge conflicts
         id: check_conflict
         run: |
-          if git ls-files -u | grep -q '.'; then
+          CONFLICTS=$(git ls-files -u | wc -l)
+          if [ "$CONFLICTS" -gt 0 ] ; then
             echo "Merge conflict detected"
             echo "::set-output name=conflict::true"
           else
