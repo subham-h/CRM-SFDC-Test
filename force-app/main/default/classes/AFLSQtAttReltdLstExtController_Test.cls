@@ -29,7 +29,7 @@ private class AFLSQtAttReltdLstExtController_Test{
     
     
     static testMethod void runTestSuite() {
-        
+        system.debug('Test123')
         List<Attachment> attList = DataGeneratorHelper2_Test.addAttachment ( 10 ,quoteAttObjSingle.id,'' ); 
         Test.StartTest();
         
