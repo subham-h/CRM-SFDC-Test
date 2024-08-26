@@ -14,7 +14,9 @@
 @isTest
 private class AFLSQtAttReltdLstExtController_Test{
 
-    system.debug('Something else 1');
+    system.debug('Write 12345');
+    system.debug('Write 12345');
+    system.debug('Write 12345');
     static Qt_Quote__c quoteObj;
     static AFLS_Quote_Attachment__c quoteAttObjSingle;
     static Account accObj = TestBusinessHelper.createAccount('Client_Account', true);//#RQ-0002978;
