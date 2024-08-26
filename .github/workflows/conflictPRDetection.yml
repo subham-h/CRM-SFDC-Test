@@ -36,13 +36,4 @@ jobs:
         if: steps.check_conflict.outputs.conflict == 'true'
         run: |
           echo "Notify about the conflict or handle it accordingly."
-      - name: Send Teams notification on merge conflict
-        if: steps.check_conflict.outputs.conflict == 'true'
-        env:
-          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        run: |
-          curl -H 'Content-Type: application/json' -d '{
-            "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
-            "themeColor": "FF0000"
-          }' $TEAMS_WEBHOOK_URL
+      
