@@ -20,7 +20,7 @@ jobs:
       - name: Attempt to merge base branch
         id: merge
         run: |
-          git merge --no-commit --no-ff origin/${{ github.base_ref }} || true
+          git merge --no-commit --no-ff origin/${{ github.base_ref }} --allow-unrelated-histories || true
           
       - name: Check for merge conflicts
         id: check_conflict
