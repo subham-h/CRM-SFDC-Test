@@ -1,7 +1,7 @@
 name: Detect and Handle Merge Conflicts
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]  # Trigger on PR creation and update
     branches:
       - sit
