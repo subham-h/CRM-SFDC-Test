@@ -2,9 +2,9 @@ name: Detect and Handle Merge Conflicts
 
 on:
   pull_request:
-    types: [opened,closed]
+    types: [opened, synchronize]  # Trigger on PR creation and update
     branches:
-      - sit  # The destination (base) branch must be 'sit'
+      - sit
 
 jobs:
   check_merge_conflict:
@@ -34,13 +34,7 @@ jobs:
             echo "::set-output name=conflict::false"
           fi
 
-      - name: Send Teams notification on merge conflict
+      - name: Send notification on merge conflict
         if: steps.check_conflict.outputs.conflict == 'true'
-        env:
-          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
-          curl -H 'Content-Type: application/json' -d '{
-            "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
-            "themeColor": "FF0000"
-          }' $TEAMS_WEBHOOK_URL
+          echo "Notify about the conflict or handle it accordingly."
