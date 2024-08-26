@@ -1,0 +1,38 @@
+name: Detect and Handle Merge Conflicts
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]  # Trigger on PR creation and update
+    branches:
+      - sit
+
+jobs:
+  check_merge_conflict:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.base_ref }}
+          
+      - name: Check for merge conflicts
+        id: check_conflict
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.PR_TOKEN}}" \
+            https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER)
+          MERGEABLE=$(echo $RESPONSE | jq .mergeable)
+          if [ "$MERGEABLE" = "false" ]; then
+            echo "Merge conflict detected"
+            echo "::set-output name=conflict::true"
+          else
+            echo "No merge conflicts detected"
+            echo "::set-output name=conflict::false"
+          fi
+
+      - name: Send notification on merge conflict
+        if: steps.check_conflict.outputs.conflict == 'true'
+        run: |
+          echo "Notify about the conflict or handle it accordingly."
