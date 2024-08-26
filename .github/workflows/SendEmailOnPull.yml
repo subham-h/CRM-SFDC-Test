@@ -1,0 +1,31 @@
+name: Send Email on Pull Request
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - sit
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.maersk.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: Pull Request #${{ github.event.number }} Opened/Updated
+          body: |
+            Pull Request #${{ github.event.number }} has been opened or updated.
+            Title: ${{ github.event.pull_request.title }}
+            Author: ${{ github.event.pull_request.user.login }}
+            URL: ${{ github.event.pull_request.html_url }}
+          to: subham.hota@maersk.com
+          from: subham.hota@maersk.com
