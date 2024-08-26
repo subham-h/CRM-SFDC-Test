@@ -13,6 +13,7 @@
 
 @isTest
 private class AFLSQtAttReltdLstExtController_Test{
+
     system.debug('Write 12345');
     static Qt_Quote__c quoteObj;
     static AFLS_Quote_Attachment__c quoteAttObjSingle;
