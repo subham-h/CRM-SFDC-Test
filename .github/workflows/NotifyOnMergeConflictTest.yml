@@ -2,7 +2,7 @@ name: Detect and Handle Merge Conflicts
 
 on:
   pull_request:
-    types: [opened,synchronize]
+    types: [opened]
     branches:
       - sit  # The destination (base) branch must be 'sit'
 
