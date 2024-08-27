@@ -1,4 +1,4 @@
-name: Detect and Handle Merge Conflicts
+name: Detect and Send Notifications on Merge Conflicts
 
 on:
   pull_request_target:
