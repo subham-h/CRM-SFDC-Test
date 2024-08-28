@@ -41,9 +41,10 @@ jobs:
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
+          PR_LINK="${{ github.event.pull_request.html_url }}"
           curl -H 'Content-Type: application/json' -d '{
             "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
+            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: $PR_LINK",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
           
@@ -62,6 +63,7 @@ jobs:
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
         run: |
+          PR_LINK="${{ github.event.pull_request.html_url }}"
           curl --request POST \
           --url https://api.sendgrid.com/v3/mail/send \
           --header "Authorization: Bearer $SENDGRID_API_KEY" \
@@ -83,7 +85,7 @@ jobs:
             "content": [
               {
                 "type": "text/plain",
-                "value": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}."
+                "value": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: $PR_LINK"
               }
             ]
           }'
