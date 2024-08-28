@@ -46,6 +46,17 @@ jobs:
             "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
+          
+      - name: Get PR Author Email
+        if: steps.check_conflict.outputs.conflict == 'true'
+        id: get_email
+        run: |
+          EMAIL=$(curl -s -H "Authorization: token ${{ secrets.PR_TOKEN }}" https://api.github.com/users/${{ github.event.pull_request.user.login }} | jq -r '.email')
+          if [ "$EMAIL" == "null" ]; then
+            echo "No public email found for user. Using default email."
+            EMAIL="subhamworks94@gmail.com"
+          fi
+          echo "::set-output name=email::$EMAIL"
       - name: Send Email on Conflict
         if: steps.check_conflict.outputs.conflict == 'true'
         env:
@@ -60,7 +71,7 @@ jobs:
               {
                 "to": [
                   {
-                    "email": "subham.hota@maersk.com"
+                    "email": "${{ steps.get_email.outputs.email }}"
                   }
                 ],
                 "subject": "Merge Conflict Detected in PR #${{ github.event.number }}"
