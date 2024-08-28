@@ -46,4 +46,34 @@ jobs:
             "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
+      - name: Send Email on Conflict
+        if: steps.check_conflict.outputs.conflict == 'true'
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: |
+          curl --request POST \
+          --url https://api.sendgrid.com/v3/mail/send \
+          --header "Authorization: Bearer $SENDGRID_API_KEY" \
+          --header "Content-Type: application/json" \
+          --data '{
+            "personalizations": [
+              {
+                "to": [
+                  {
+                    "email": "subham.hota@maersk.com"
+                  }
+                ],
+                "subject": "Merge Conflict Detected in PR #${{ github.event.number }}"
+              }
+            ],
+            "from": {
+              "email": "subham.hota@maersk.com"
+            },
+            "content": [
+              {
+                "type": "text/plain",
+                "value": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}."
+              }
+            ]
+          }'
       
