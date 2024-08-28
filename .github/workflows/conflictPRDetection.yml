@@ -31,11 +31,6 @@ jobs:
             echo "No merge conflicts detected"
             echo "::set-output name=conflict::false"
           fi
-
-      - name: Send notification on merge conflict
-        if: steps.check_conflict.outputs.conflict == 'true'
-        run: |
-          echo "Notify about the conflict or handle it accordingly."
       - name: Send Teams notification on merge conflict
         if: steps.check_conflict.outputs.conflict == 'true'
         env:
@@ -44,7 +39,7 @@ jobs:
           PR_LINK="${{ github.event.pull_request.html_url }}"
           curl -H 'Content-Type: application/json' -d '{
             "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: $PR_LINK",
+            "text": "A merge conflict was detected in PR #${{ github.event.number }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: ${{ github.event.pull_request.html_url }}",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
           
