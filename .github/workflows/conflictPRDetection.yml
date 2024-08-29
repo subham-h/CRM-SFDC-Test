@@ -9,10 +9,8 @@ on:
 jobs:
   check_merge_conflict:
     runs-on: ubuntu-latest
-		outputs:
-      is_notify: true
-
-  	steps:
+	
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -86,20 +84,5 @@ jobs:
               }
             ]
           }'
-					
-  
-        
-	test_needs_scenario:
- 		runs-on: ubuntu-latest
-    
-		steps:
-		 	- name: Send Notification based on the first Job
-      	run: |
-			 		if [ ${{ needs.check_merge_conflict.outputs.is_notify }} = "true" ]; then
-			 			echo "True is received from the first Job"
-					else 
-		 				echo "False is received from the first Job"
-		 			fi
-      
       
  
