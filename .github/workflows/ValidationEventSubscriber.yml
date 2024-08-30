@@ -1,4 +1,4 @@
-name: Notify Validation Status
+name: Validation Event Subscriber
 
 on:
   repository_dispatch:
