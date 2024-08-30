@@ -1,15 +1,20 @@
-name: Second Workflow
+name: Notify Validation Status
 
 on:
   repository_dispatch:
-    types: [trigger-second-workflow]
+    types: [validation-success,validation-failure]
 
 jobs:
   process:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Payload
+      - name: Validation Success Notification
+        if: ${{ github.event.event_type}} == "validation-success"
         run: |
-          echo "Trigger: ${{ github.event.client_payload.trigger}}"
-          echo "The second workflow is successfully triggered."
+          echo "Validation successful From : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
+      
+      - name: Validation Failure Notification
+        if: ${{ github.event.event_type}} == "validation-failure"
+        run: |
+          echo "Validation failed From : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
