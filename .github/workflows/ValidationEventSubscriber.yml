@@ -10,11 +10,11 @@ jobs:
 
     steps:
       - name: Validation Success Notification
-        if: ${{ github.event.event_type == 'validation-success'}} 
+        if: ${{ github.event.action == 'validation-success'}} 
         run: |
           echo "Validation successful From : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
       
       - name: Validation Failure Notification
-        if: ${{ github.event.event_type == 'validation-failure'}}
+        if: ${{ github.event.action == 'validation-failure'}}
         run: |
           echo "Validation failed From : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
