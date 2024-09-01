@@ -84,13 +84,13 @@ jobs:
               }
             ]
           }'
-      - name: Trigger Second Workflow
-        if: steps.check_conflict.outputs.conflict == 'true'  # Only trigger if the output is 'true'
+      - name: Trigger Validation Failure Workflow
+        if: true # steps.check_conflict.outputs.conflict == 'true' Only trigger if the output is 'true'
         run: |
           curl -X POST \
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"trigger-second-workflow", "client_payload":{ "trigger": "true"}}'
+            -d '{"event_type":"validation-failure", "client_payload":{ "from": ${{github.head_ref}} , "to" : ${{ github.base_ref }} }}'
       
  
