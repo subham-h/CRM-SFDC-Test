@@ -100,6 +100,6 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"validation-failure", "client_payload":{ "from": ${{github.head_ref}} , "to" : ${{ github.base_ref }} }}'
+            -d '{"event_type":"validation-failure", "client_payload":{ "from": "${{github.head_ref}}" , "to" : "${{ github.base_ref }}" }}'
       
  
