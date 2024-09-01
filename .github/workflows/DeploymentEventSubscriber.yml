@@ -1,1 +1,20 @@
-something
+name: Deployment Event Subscriber
+
+on:
+  repository_dispatch:
+    types: [deployment-success,deployment-failure]
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deployment Success Notification
+        if: ${{ github.event.action == 'deployment-success'}} 
+        run: |
+          echo "Attempted deployment is successful from : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
+      
+      - name: Deployment Failure Notification
+        if: ${{ github.event.action == 'deployment-failure'}}
+        run: |
+          echo "Attempted deployment has failed From : ${{ github.event.client_payload.from}} to ${{ github.event.client_payload.to}} "
