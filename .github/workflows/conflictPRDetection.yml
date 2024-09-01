@@ -39,7 +39,7 @@ jobs:
           PR_LINK="${{ github.event.pull_request.html_url }}"
           curl -H 'Content-Type: application/json' -d '{
             "title": "Merge Conflict Detected",
-            "text": "A merge conflict was detected in PR #${{ github.event.number }} raised by ${{ github.event.pull_request.user.login }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: ${{ github.event.pull_request.html_url }}",
+            "text": "A merge conflict targeting branch ${{ github.base_ref }} from ${{ github.head_ref }} was detected in PR #${{ github.event.number }} raised by ${{ github.event.pull_request.user.login }} .\n\nView the pull request here: ${{ github.event.pull_request.html_url }}",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
           
@@ -53,37 +53,46 @@ jobs:
             EMAIL="subhamworks94@gmail.com"
           fi
           echo "::set-output name=email::$EMAIL"
-      - name: Send Email on Conflict
+          
+      - name: Read email addresses from JSON
+        id: read_json
+        run: |
+          jq -r '.[] | .email' config/users.json > emails.txt
+          cat emails.txt
+
+      - name: Send Email to Users list
         if: steps.check_conflict.outputs.conflict == 'true'
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
         run: |
-          PR_LINK="${{ github.event.pull_request.html_url }}"
-          curl --request POST \
-          --url https://api.sendgrid.com/v3/mail/send \
-          --header "Authorization: Bearer $SENDGRID_API_KEY" \
-          --header "Content-Type: application/json" \
-          --data '{
-            "personalizations": [
-              {
-                "to": [
+          while IFS= read -r EMAIL
+          do
+            curl --request POST \
+              --url https://api.sendgrid.com/v3/mail/send \
+              --header "Authorization: Bearer $SENDGRID_API_KEY" \
+              --header "Content-Type: application/json" \
+              --data '{
+                "personalizations": [
                   {
-                    "email": "${{ steps.get_email.outputs.email }}"
+                    "to": [
+                      {
+                        "email": "'"$EMAIL"'"
+                      }
+                    ],
+                    "subject": "Merge Conflict Detected in PR #${{ github.event.number }}"
                   }
                 ],
-                "subject": "Merge Conflict Detected in PR #${{ github.event.number }}"
-              }
-            ],
-            "from": {
-              "email": "subham.hota@maersk.com"
-            },
-            "content": [
-              {
-                "type": "text/plain",
-                "value": "A merge conflict was detected in PR #${{ github.event.number }}  raised by ${{ github.event.pull_request.user.login }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: ${{ github.event.pull_request.html_url }}"
-              }
-            ]
-          }'
+                "from": {
+                  "email": "subham.hota@maersk.com"
+                },
+                "content": [
+                  {
+                    "type": "text/plain",
+                    "value": "A merge conflict targeting branch ${{ github.base_ref }} from ${{ github.head_ref }} was detected in PR #${{ github.event.number }} raised by ${{ github.event.pull_request.user.login }}.\n\nView the pull request here: ${{ github.event.pull_request.html_url }}."
+                  }
+                ]
+              }'
+          done < emails.txt
       - name: Trigger Validation Failure Workflow
         if: true # steps.check_conflict.outputs.conflict == 'true' Only trigger if the output is 'true'
         run: |
