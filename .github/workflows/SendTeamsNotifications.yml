@@ -1,0 +1,22 @@
+name: Send Teams Notifiactions
+
+on:
+  repository_dispatch:
+    types: [merge-conflict,PR-merged,validation,deployment]  # Trigger on PR creation and update
+
+jobs:
+  check_merge_conflict:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify on merge conflict
+        if: ${{ github.event.action == 'merge-conflict'}} 
+        env:
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+        run: |
+          PR_LINK="${{ github.event.pull_request.html_url }}"
+          curl -H 'Content-Type: application/json' -d '{
+            "title": "Merge Conflict Detected",
+            "text": "A merge conflict was detected in PR #${{ github.event.number }} raised by ${{ github.event.pull_request.user.login }} targeting branch ${{ github.base_ref }} from ${{ github.head_ref }}.\n\nView the pull request here: ${{ github.event.pull_request.html_url }}",
+            "themeColor": "FF0000"
+          }' $TEAMS_WEBHOOK_URL
