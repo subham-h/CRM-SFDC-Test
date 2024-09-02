@@ -36,12 +36,12 @@ jobs:
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
-          PR_LINK="${{ github.event.pull_request.html_url }}"
-          curl -H 'Content-Type: application/json' -d '{
-            "title": "Merge Conflict Detected",
-            "text": "A merge conflict targeting branch ${{ github.base_ref }} from ${{ github.head_ref }} was detected in PR #${{ github.event.number }} raised by ${{ github.event.pull_request.user.login }} .\n\nView the pull request here: ${{ github.event.pull_request.html_url }}",
-            "themeColor": "FF0000"
-          }' $TEAMS_WEBHOOK_URL
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"merge-conflict", "client_payload":{ "from": "${{github.head_ref}}" , "to" : "${{ github.base_ref }}", "prNum" : "${{ github.event.number }}","userName" : "${{ github.event.pull_request.user.login }}","prUrl" : "${{ github.event.pull_request.html_url }}" }}'
+        
           
       - name: Get PR Author Email
         if: steps.check_conflict.outputs.conflict == 'true'
