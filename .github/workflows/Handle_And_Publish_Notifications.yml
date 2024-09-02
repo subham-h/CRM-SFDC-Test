@@ -17,3 +17,12 @@ jobs:
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
             -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Merge Conflict Detected", "text" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }}.\n\nView the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
+
+      - name: Send Email on merge conflict
+        if: ${{ github.event.action == 'merge-conflict' && (github.event.client_payload.to == 'main' || github.event.client_payload.to == 'release')}}
+        run: |
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Merge Conflict Detected in PR #${{ github.event.client_payload.prNum }}", "emailBody" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }}.\n\nView the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
