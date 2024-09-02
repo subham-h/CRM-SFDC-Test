@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - name: Send Notification on Teams Channel
+        if: ${{github.event.action}} == 'notify_teams'
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
@@ -23,12 +24,43 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-      - name: Send Notification on Teams Channel
-        env:
-          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        run: |
-          curl -H 'Content-Type: application/json' -d '{
-            "title": "${{github.event.client_payload.title}}",
-            "text": "From the new model : ${{github.event.client_payload.text}}",
-            "themeColor": "FF0000"
-          }' $TEAMS_WEBHOOK_URL 
+      
+       - name: Read email addresses from JSON
+         if: ${{github.event.action}} == 'send_email'
+         id: read_json
+         run: |
+           jq -r '.[] | .email' config/users.json > emails.txt
+           cat emails.txt
+       - name: Send Email to Users list
+         if: ${{github.event.action}} == 'send_email'
+         env:
+            SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+         run: |
+            while IFS= read -r EMAIL
+            do
+              curl --request POST \
+                --url https://api.sendgrid.com/v3/mail/send \
+                --header "Authorization: Bearer $SENDGRID_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "personalizations": [
+                    {
+                      "to": [
+                        {
+                          "email": "'"$EMAIL"'"
+                        }
+                      ],
+                      "subject": "${{github.event.client_payload.emailSubject}}" #"Merge Conflict Detected in PR #${{ github.event.number }}"
+                    }
+                  ],
+                  "from": {
+                    "email": "subham.hota@maersk.com"
+                  },
+                  "content": [
+                    {
+                      "type": "text/plain",
+                      "value": "${{github.event.client_payload.emailBody}}"
+                    }
+                  ]
+                }'
+            done < emails.txt
