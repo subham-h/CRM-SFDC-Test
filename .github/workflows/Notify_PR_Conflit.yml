@@ -31,7 +31,7 @@ jobs:
             echo "No merge conflicts detected"
             echo "::set-output name=conflict::false"
           fi
-      - name: Send Teams notification on merge conflict
+      - name: Notify merge conflict to the Handler WF # Notifies Handle_And_Publish_Notifications workflow about the PR conflict
         if: steps.check_conflict.outputs.conflict == 'true'
         run: |
           curl -X POST \
