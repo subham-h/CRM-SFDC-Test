@@ -31,6 +31,7 @@ jobs:
          run: |
            jq -r '.[] | .email' config/users.json > emails.txt
            cat emails.txt
+           
        - name: Send Email to Users list
          if: ${{github.event.action}} == 'send_email'
          env:
