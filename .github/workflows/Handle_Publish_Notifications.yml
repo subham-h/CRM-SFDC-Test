@@ -1,4 +1,4 @@
-name: Send Teams Notifiactions
+name: Notification Handler and publisher
 
 on:
   repository_dispatch:
