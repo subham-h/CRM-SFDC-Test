@@ -24,7 +24,9 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-      
+       - name: List files in config directory
+         run: ls -la config
+         
        - name: Read email addresses from JSON
          if: ${{github.event.action}} == 'send_email'
          id: read_json
