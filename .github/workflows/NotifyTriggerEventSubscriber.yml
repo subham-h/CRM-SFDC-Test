@@ -1,4 +1,4 @@
-name: Validation Event Subscriber
+name: Notify Trigger Event Subscriber
 
 on:
   repository_dispatch:
