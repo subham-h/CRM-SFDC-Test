@@ -1,4 +1,4 @@
-name: Notification Handler and publisher
+name: Notification Teams and Email
 
 on:
   repository_dispatch:
