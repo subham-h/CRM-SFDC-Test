@@ -66,8 +66,11 @@ jobs:
           IFS=' ' read -r -a BRANCH_ARRAY <<< "$FEATURE_BRANCHES"
 
           # Loop through each feature branch and create a pull request
-          for BRANCH_NAME in "${BRANCH_ARRAY[@]}"; do
-            gh pr create --base $RELEASE_BRANCH --head $BRANCH_NAME --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
-          done
+          for BRANCH_NAME in $BRANCH_ARRAY; do
+            curl -X POST \
+            -H "Authorization: token ${{ secrets.PR_TOKEN}}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{"title":"Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}","body":"Please pull this in!","head": $BRANCH_NAME,"base":$RELEASE_BRANCH}' \
+            https://api.github.com/repos/subham-h/CRM-SFDC-Test/pulls
 
           
