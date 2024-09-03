@@ -36,7 +36,7 @@ jobs:
           FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ' ')
           
           # Set the output for the feature branches
-          echo "feature_branches=$FEATURE_BRANCHES" >> $GITHUB_ENV
+          echo "::set-output name=feature_branches::$FEATURE_BRANCHES"
 
   create-pull-requests:
     needs: create-release-branch
@@ -50,9 +50,12 @@ jobs:
           USER_STORY_ID=${{ github.event.inputs['user-story-id'] }}
           RELEASE_BRANCH="release-${USER_STORY_ID}"
 
-          # Loop through each feature branch and create a pull request
+          # Retrieve the feature branches from the previous job
+          FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
           echo "Feature branches to create PRs from:"
           echo "$FEATURE_BRANCHES"
+          
+          # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
             gh pr create --base $RELEASE_BRANCH --head $BRANCH_NAME --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
           done
