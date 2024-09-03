@@ -36,7 +36,7 @@ jobs:
           
           # Find all feature branches that match the user story ID
           FEATURE_BRANCHES=$(git branch -r | grep "feature/${USER_STORY_ID}" | sed 's/origin\///')
-          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ' ' | xargs)
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ',' | xargs)
           echo "Extracted features edited - $FEATURE_BRANCHES"
           
           # Set the output for the feature branches
@@ -63,12 +63,12 @@ jobs:
           FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
 
           # Convert space-separated branches into an array
-          IFS=' ' read -r -a BRANCH_ARRAY <<< "$FEATURE_BRANCHES"
+          IFS=',' read -r -a BRANCH_ARRAY <<< "$FEATURE_BRANCHES"
 
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in "${BRANCH_ARRAY[@]}"; do
             BRANCH_NAME=$(echo "$BRANCH_NAME" | xargs)  # Trim leading/trailing spaces
-            gh pr create --base "$RELEASE_BRANCH" --head "${BRANCH_NAME}" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
+            gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
           done
 
           
