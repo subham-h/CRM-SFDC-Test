@@ -36,7 +36,7 @@ jobs:
           
           # Find all feature branches that match the user story ID
           FEATURE_BRANCHES=$(git branch -r | grep "feature/${USER_STORY_ID}" | sed 's/origin\///')
-          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ',' | sed 's/,$//')
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ',' | xargs)
           echo "Extracted features edited - $FEATURE_BRANCHES"
           
           # Set the output for the feature branches
