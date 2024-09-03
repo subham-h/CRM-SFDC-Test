@@ -19,6 +19,8 @@ jobs:
             "text": "From the new model : ${{github.event.client_payload.text}}",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
+      - name: List files in config directory
+        run: ls -la config
           
   send_email:
      runs-on: ubuntu-latest
