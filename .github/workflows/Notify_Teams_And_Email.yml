@@ -53,7 +53,7 @@ jobs:
                           "email": "'"$EMAIL"'"
                         }
                       ],
-                      "subject": "${{github.event.client_payload.emailSubject}}" #"Merge Conflict Detected in PR #${{ github.event.number }}"
+                      "subject": "${{github.event.client_payload.emailSubject}}"
                     }
                   ],
                   "from": {
