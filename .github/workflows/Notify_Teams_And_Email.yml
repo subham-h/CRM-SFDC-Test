@@ -19,16 +19,13 @@ jobs:
             "text": "From the new model : ${{github.event.client_payload.text}}",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
-      - name: List files in config directory
-        run: |
-          ls -la config
           
   send_email:
      runs-on: ubuntu-latest
 
      steps:
-       - name: List files in config directory
-         run: ls -la config
+       - name: Checkout code
+         uses: actions/checkout@v3
          
        - name: Read email addresses from JSON
          if: ${{github.event.action}} == 'send_email'
