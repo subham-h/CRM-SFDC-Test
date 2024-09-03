@@ -49,6 +49,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Get the CLI version
+        run: |
+          gh --version
 
       - name: Create pull requests
         run: |
