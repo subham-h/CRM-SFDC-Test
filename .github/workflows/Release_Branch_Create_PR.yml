@@ -60,13 +60,15 @@ jobs:
           USER_STORY_ID=${{ github.event.inputs['user-story-id'] }}
           RELEASE_BRANCH="release-${USER_STORY_ID}"
           # Retrieve the feature branches from the previous job
-          FEATURE_BRANCHES=("feature/notify1" "feature/notify2")
-          #echo "Feature branches to create PRs from:"
-          #echo "$FEATURE_BRANCHES"
-          
+          FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
+
+          # Convert space-separated branches into an array
+          IFS=' ' read -r -a BRANCH_ARRAY <<< "$FEATURE_BRANCHES"
+
           # Loop through each feature branch and create a pull request
-          for BRANCH_NAME in "${FEATURE_BRANCHES[@]}"; do
-            #echo "Creating PR from $BRANCH_NAME"
+          for BRANCH_NAME in "${BRANCH_ARRAY[@]}"; do
+            BRANCH_NAME=$(echo "$BRANCH_NAME" | xargs)  # Trim leading/trailing spaces
+            echo "Creating PR from '$BRANCH_NAME'"
             gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
           done
 
