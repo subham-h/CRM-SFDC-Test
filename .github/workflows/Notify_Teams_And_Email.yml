@@ -20,7 +20,8 @@ jobs:
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
       - name: List files in config directory
-        run: ls -la config
+        run: |
+          ls -la config
           
   send_email:
      runs-on: ubuntu-latest
