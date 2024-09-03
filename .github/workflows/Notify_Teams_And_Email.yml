@@ -36,7 +36,7 @@ jobs:
            cat emails.txt
            
        - name: Send Email to Users list
-         if: ${{github.event.action}} == 'send_email'
+         if: ${{github.event.action == 'send_email'}} 
          env:
             SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
          run: |
