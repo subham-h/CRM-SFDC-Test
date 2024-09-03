@@ -12,6 +12,7 @@ jobs:
       - name: Notify on merge conflict
         if: ${{ github.event.action == 'merge-conflict'}}
         run: |
+          echo "event type name is : ${{github.event.action}}"
           curl -X POST \
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
@@ -21,6 +22,7 @@ jobs:
       - name: Send Email on merge conflict
         if: ${{ github.event.action == 'merge-conflict' && (github.event.client_payload.to == 'main' || github.event.client_payload.to == 'release' || github.event.client_payload.to == 'sit')}}
         run: |
+          echo "event type name is : ${{github.event.action}}"
           curl -X POST \
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
