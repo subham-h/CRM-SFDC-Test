@@ -36,6 +36,7 @@ jobs:
           # Find all feature branches that match the user story ID
           FEATURE_BRANCHES=$(git branch -r | grep "feature/${USER_STORY_ID}" | sed 's/origin\///')
           echo "Extracted features - $FEATURE_BRANCHES"
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ' ')
           echo "Extracted features edited - $FEATURE_BRANCHES"
           
           # Set the output for the feature branches
@@ -65,5 +66,5 @@ jobs:
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
             echo "Creating PR from $BRANCH_NAME"
-            gh pr create --base $RELEASE_BRANCH --head $BRANCH_NAME --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
+            gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
           done
