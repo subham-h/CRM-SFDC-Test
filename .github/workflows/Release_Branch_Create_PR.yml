@@ -55,12 +55,12 @@ jobs:
       - name: Create pull requests
         run: |
           USER_STORY_ID=${{ github.event.inputs['user-story-id'] }}
-          RELEASE_BRANCH="release-${{USER_STORY_ID}}"
+          RELEASE_BRANCH="release-$USER_STORY_ID"
 
           # Retrieve the feature branches from the previous job
           FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
           echo "Feature branches to create PRs from:"
-          echo "${FEATURE_BRANCHES}"
+          echo "$FEATURE_BRANCHES"
 
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
