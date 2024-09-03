@@ -59,8 +59,7 @@ jobs:
           RELEASE_BRANCH="release-${USER_STORY_ID}"
 
           # Retrieve the feature branches from the previous job
-          # FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
-          FEATURE_BRANCHES = "feature/notify1 feature/notify2" # Testing
+          FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
           echo "Feature branches to create PRs from:"
           echo "$FEATURE_BRANCHES"
           
