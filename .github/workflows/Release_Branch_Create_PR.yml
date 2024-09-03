@@ -39,7 +39,7 @@ jobs:
           echo "Extracted features edited - $FEATURE_BRANCHES"
           
           # Set the output for the feature branches
-          echo "::set-output name=feature_branches::$FEATURE_BRANCHES"
+          echo "feature_branches=$FEATURE_BRANCHES" >> $GITHUB_ENV
           echo "needs value : ${{ steps.feature-branches.outputs.feature_branches }}"
 
   create-pull-requests:
