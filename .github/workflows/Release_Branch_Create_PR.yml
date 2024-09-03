@@ -54,7 +54,8 @@ jobs:
 
       - name: Create pull requests
         run: |
-          USER_STORY_ID=${{ github.event.inputs['user-story-id'] }}
+          USER_STORY_ID= ${{inputs.user-story-id}}
+          echo "$USER_STORY_ID"
           RELEASE_BRANCH="release-${USER_STORY_ID}"
 
           # Retrieve the feature branches from the previous job
