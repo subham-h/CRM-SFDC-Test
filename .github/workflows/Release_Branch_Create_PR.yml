@@ -60,7 +60,7 @@ jobs:
           # Retrieve the feature branches from the previous job
           FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
           echo "Feature branches to create PRs from:"
-          echo "$FEATURE_BRANCHES"
+          echo "${{FEATURE_BRANCHES}}"
           
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
