@@ -59,12 +59,12 @@ jobs:
           RELEASE_BRANCH="release-${USER_STORY_ID}"
           # Retrieve the feature branches from the previous job
           FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
-          echo "Feature branches to create PRs from:"
-          echo "$FEATURE_BRANCHES"
+          #echo "Feature branches to create PRs from:"
+          #echo "$FEATURE_BRANCHES"
           
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
-            echo "Creating PR from $BRANCH_NAME"
+            #echo "Creating PR from $BRANCH_NAME"
             gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
           done
 
