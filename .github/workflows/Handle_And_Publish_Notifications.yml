@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Notify on merge conflict
+      - name: Notify Teams on merge conflict
         if: ${{ github.event.action == 'merge-conflict'}}
         run: |
           echo "event type name is : ${{github.event.action}}"
@@ -28,3 +28,85 @@ jobs:
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
             -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Merge Conflict Detected in PR #${{ github.event.client_payload.prNum }}", "emailBody" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }}. View the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
+            
+      #Validation Event Handlers
+      - name: Notify Teams on successful validation
+        if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'success'}}
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation was successful!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
+      
+      - name: Send Email on successful validation
+        if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Validation was successful!", "emailBody" : "Validation raised by ${{ github.event.client_payload.userName }} against branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} was successful."}}'
+      
+      - name: Notify Teams on failed validation
+        if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'error'}} #Should we use error or failure for this case.
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation has failed!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} has failed. Please review and fix the errors before re-validating."}}'
+
+      - name: Send Email on failed validation
+        if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'error' && github.event.client_payload.to == 'main' }}
+        run: |
+            echo "event type name is : ${{github.event.action}}"
+            curl -X POST \
+              -H "Accept: application/json" \
+              -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Validation has failed!", "emailBody" : "Validation raised by ${{ github.event.client_payload.userName }} against branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} has failed. Please review and fix the errors before re-validating."}}'
+        
+      #Deployment Event Handlers
+      - name: Notify Teams on successful deployment
+        if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'success'}}
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment was successful!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
+      
+      - name: Send Email on successful deployment
+        if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Deployment was successful!", "emailBody" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} was successful."}}'
+      
+      - name: Notify Teams on failed deployment
+        if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'error'}} #Should we use error or failure for this case.
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment has failed!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} has failed. Please review and fix the errors."}}'
+
+      - name: Send Email on failed deployment
+        if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'error' && github.event.client_payload.to == 'main' }}
+        run: |
+          echo "event type name is : ${{github.event.action}}"
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Deployment has failed!", "emailBody" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} has failed. Please review and fix the errors."}}'
