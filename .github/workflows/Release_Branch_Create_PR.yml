@@ -65,5 +65,5 @@ jobs:
           # Loop through each feature branch and create a pull request
           for BRANCH_NAME in $FEATURE_BRANCHES; do
             echo "Creating PR from $BRANCH_NAME"
-            gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
+            gh pr create --base "${{RELEASE_BRANCH}}" --head "${{BRANCH_NAME}}" --title "Merge ${{BRANCH_NAME}} into ${{RELEASE_BRANCH}}" --body "Merging changes from ${{BRANCH_NAME}} to ${{RELEASE_BRANCH}}"
           done
