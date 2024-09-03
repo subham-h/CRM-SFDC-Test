@@ -14,6 +14,7 @@ jobs:
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
+          echo "event type name is : ${{github.event.action}}"
           curl -H 'Content-Type: application/json' -d '{
             "title": "${{github.event.client_payload.title}}",
             "text": "From the new model : ${{github.event.client_payload.text}}",
@@ -39,6 +40,7 @@ jobs:
          env:
             SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
          run: |
+            echo "event type name is : ${{github.event.action}}"
             while IFS= read -r EMAIL
             do
               curl --request POST \
