@@ -18,7 +18,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Merge Conflict Detected", "text" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }}.\n\nView the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Merge Conflict Detected", "to" : "${{ github.event.client_payload.to }}", "text" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }}.\n\nView the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
 
       - name: Send Email on merge conflict
         if: ${{ github.event.action == 'merge-conflict' && (github.event.client_payload.to == 'main' || github.event.client_payload.to == 'release' || github.event.client_payload.to == 'sit')}} # Remove sit after the Demo
@@ -39,7 +39,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation was successful!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successful."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation was successful!", "to" : "${{ github.event.client_payload.to }}", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} is successful."}}'
       
       - name: Send Email on successful validation
         if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
@@ -59,7 +59,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation has failed!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} has failed. Please review and fix the errors before re-validating."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation has failed!", "to" : "${{ github.event.client_payload.to }}",  "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} has failed. Please review and fix the errors before re-validating."}}'
 
       - name: Send Email on failed validation
         if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'error' && github.event.client_payload.to == 'main' }}
@@ -80,7 +80,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment was successful!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successful."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment was successful!", "to" : "${{ github.event.client_payload.to }}",  "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} is successful."}}'
       
       - name: Send Email on successful deployment
         if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
@@ -100,7 +100,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment has failed!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} has failed. Please review and fix the errors."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment has failed!", "to" : "${{ github.event.client_payload.to }}", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} has failed. Please review and fix the errors."}}'
 
       - name: Send Email on failed deployment
         if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'error' && github.event.client_payload.to == 'main' }}
@@ -122,7 +122,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "PR-Merge was successful!", "text" : "Merge attempt of PR #${{ github.event.client_payload.prNum }} initiated by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "PR-Merge was successful!", "to" : "${{ github.event.client_payload.to }}", "text" : "Merge attempt of PR #${{ github.event.client_payload.prNum }} initiated by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} is successful."}}'
 
       - name: Notify Teams on failed PR Merge
         if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'error' && github.event.client_payload.to != 'main'}} #Should we use error or failure for this case.
