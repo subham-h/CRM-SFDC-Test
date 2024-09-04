@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Send Notification on Teams Channel
-        if: ${{github.event.action  == 'notify_teams'}}
+        if: ${{github.event.action  == 'notify_teams' && !(github.event.client_payload.to  == 'main' || github.event.client_payload.to  == 'release')}}
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
