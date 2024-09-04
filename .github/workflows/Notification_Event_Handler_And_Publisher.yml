@@ -2,7 +2,7 @@ name: Notification Event Handler and Publisher
 
 on:
   repository_dispatch:
-    types: [merge-conflict,PR-merged,validation,deployment]  # Trigger on PR creation and update
+    types: [merge-conflict,PR-merge,validation,deployment]  # Trigger on PR creation and update
 
 jobs:
   handle_triggered_payload:
@@ -115,7 +115,7 @@ jobs:
       #PR-Merged Event Handler
 
       - name: Notify Teams on successful PR Merge
-        if: ${{ github.event.action == 'PR-Merge' && github.event.client_payload.type == 'success' && github.event.client_payload.to != 'main'}}
+        if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'success' && github.event.client_payload.to != 'main'}}
         run: |
           echo "event type name is : ${{github.event.action}}"
           curl -X POST \
@@ -125,7 +125,7 @@ jobs:
             -d '{"event_type":"notify_teams", "client_payload":{ "title" : "PR-Merge was successful!", "text" : "Merge attempt of PR #${{ github.event.client_payload.prNum }} initiated by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
 
       - name: Notify Teams on failed PR Merge
-        if: ${{ github.event.action == 'PR-Merge' && github.event.client_payload.type == 'error' && github.event.client_payload.to != 'main'}} #Should we use error or failure for this case.
+        if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'error' && github.event.client_payload.to != 'main'}} #Should we use error or failure for this case.
         run: |
           echo "event type name is : ${{github.event.action}}"
           curl -X POST \
