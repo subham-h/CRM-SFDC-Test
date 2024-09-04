@@ -112,7 +112,7 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/dispatches \
             -d '{"event_type":"send_email", "client_payload":{ "emailSubject" : "Deployment has failed!", "emailBody" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} has failed. Please review and fix the errors."}}'
       
-      #PR-Merged Event Handler
+      #PR-Merge Event Handler
 
       - name: Notify Teams on successful PR Merge
         if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'success' && github.event.client_payload.to != 'main'}}
