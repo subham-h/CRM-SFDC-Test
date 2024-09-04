@@ -39,7 +39,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation was successful!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Validation was successful!", "text" : "Validation of components raised by ${{ github.event.client_payload.userName }} against branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successful."}}'
       
       - name: Send Email on successful validation
         if: ${{ github.event.action == 'validation' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
@@ -80,7 +80,7 @@ jobs:
             -H "Accept: application/json" \
             -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment was successful!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successdul."}}'
+            -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Deployment was successful!", "text" : "Deployment of components attempted by ${{ github.event.client_payload.userName }} to branch ${{ github.client_payload.to }} from ${{ github.client_payload.from }} is successful."}}'
       
       - name: Send Email on successful deployment
         if: ${{ github.event.action == 'deployment' && github.event.client_payload.type == 'success' && github.event.client_payload.to == 'main' }}
