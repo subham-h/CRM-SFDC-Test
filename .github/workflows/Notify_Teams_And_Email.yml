@@ -17,7 +17,7 @@ jobs:
           echo "event type name is : ${{github.event.action}}"
           curl -H 'Content-Type: application/json' -d '{
             "title": "${{github.event.client_payload.title}}",
-            "text": "From the new model : ${{github.event.client_payload.text}}",
+            "text": "${{github.event.client_payload.text}}",
             "themeColor": "FF0000"
           }' $TEAMS_WEBHOOK_URL
           
