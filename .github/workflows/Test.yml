@@ -52,6 +52,8 @@ jobs:
           done
 
           # Remove trailing comma
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr '\n' ',' | xargs)
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | tr -d ' ')
           FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | sed 's/,$//')
           echo "::set-output name=feature_branches::$FEATURE_BRANCHES"
 
