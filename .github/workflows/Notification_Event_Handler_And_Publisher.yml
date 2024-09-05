@@ -21,7 +21,7 @@ jobs:
             -d '{"event_type":"notify_teams", "client_payload":{ "title" : "Merge Conflict Detected", "to" : "${{ github.event.client_payload.to }}", "text" : "A merge conflict was detected in PR #${{ github.event.client_payload.prNum }} raised by ${{ github.event.client_payload.userName }} targeting branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }}.\n\nView the pull request here: ${{ github.event.client_payload.prUrl }}"}}'
 
       - name: Send Email on merge conflict
-        if: ${{ github.event.action == 'merge-conflict' && (github.event.client_payload.to == 'main' || github.event.client_payload.to == 'release' || github.event.client_payload.to == 'sit')}} # Remove sit after the Demo
+        if: ${{ github.event.action == 'merge-conflict' && (github.event.client_payload.to == 'main' || github.event.client_payload.to == 'release')}} # Remove sit after the Demo
         run: |
           echo "event type name is : ${{github.event.action}}"
           curl -X POST \
