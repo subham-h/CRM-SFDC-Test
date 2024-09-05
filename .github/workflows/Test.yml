@@ -1,0 +1,82 @@
+name: Create Release Branch and PRs
+
+on:
+  workflow_dispatch:
+    inputs:
+      user-story-ids:
+        description: 'Comma-separated User Story Identifiers'
+        type: string
+        required: true
+
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    outputs:
+      feature_branches: ${{ steps.feature-branches.outputs.feature_branches }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create release branch
+        run: |
+          USER_STORY_IDS=${{ github.event.inputs['user-story-ids'] }}
+          # Create a branch for the first user story (or handle branch naming convention)
+          FIRST_STORY_ID=$(echo $USER_STORY_IDS | cut -d',' -f1)
+          RELEASE_BRANCH="release-${FIRST_STORY_ID}"
+          
+          # Fetch all branches
+          git fetch --all
+
+          # Create and push the release branch from main
+          git checkout -b $RELEASE_BRANCH origin/main
+          git push origin $RELEASE_BRANCH
+
+      - name: Find feature branches
+        id: feature-branches
+        run: |
+          USER_STORY_IDS=${{ github.event.inputs['user-story-ids'] }}
+          
+          # Initialize an empty list of feature branches
+          FEATURE_BRANCHES=""
+
+          # Loop through each user story ID and find matching feature branches
+          IFS=',' read -r -a STORY_ARRAY <<< "$USER_STORY_IDS"
+          for STORY_ID in "${STORY_ARRAY[@]}"; do
+            STORY_ID=$(echo "$STORY_ID" | xargs)  # Trim leading/trailing spaces
+
+            # Find all feature branches that match the user story ID
+            BRANCHES=$(git branch -r | grep "feature/${STORY_ID}" | sed 's/origin\///')
+            if [[ -n "$BRANCHES" ]]; then
+              FEATURE_BRANCHES="${FEATURE_BRANCHES}${BRANCHES},"
+            fi
+          done
+
+          # Remove trailing comma
+          FEATURE_BRANCHES=$(echo "$FEATURE_BRANCHES" | sed 's/,$//')
+          echo "::set-output name=feature_branches::$FEATURE_BRANCHES"
+
+  create-pull-requests:
+    needs: create-release-branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Create pull requests
+        env:
+          GH_TOKEN: ${{ secrets.PR_TOKEN }}
+        run: |
+          USER_STORY_IDS=${{ github.event.inputs['user-story-ids'] }}
+          RELEASE_BRANCH="release-$(echo $USER_STORY_IDS | cut -d',' -f1)"
+          
+          # Retrieve the feature branches from the previous job
+          FEATURE_BRANCHES=${{ needs.create-release-branch.outputs.feature_branches }}
+
+          # Convert comma-separated branches into an array
+          IFS=',' read -r -a BRANCH_ARRAY <<< "$FEATURE_BRANCHES"
+
+          # Loop through each feature branch and create a pull request
+          for BRANCH_NAME in "${BRANCH_ARRAY[@]}"; do
+            BRANCH_NAME=$(echo "$BRANCH_NAME" | xargs)  # Trim leading/trailing spaces
+            gh pr create --base "$RELEASE_BRANCH" --head "$BRANCH_NAME" --title "Merge ${BRANCH_NAME} into ${RELEASE_BRANCH}" --body "Merging changes from ${BRANCH_NAME} to ${RELEASE_BRANCH}"
+          done
