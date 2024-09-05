@@ -1,4 +1,4 @@
-name: Create Release Branch and PRs
+name: Test WF
 
 on:
   workflow_dispatch:
