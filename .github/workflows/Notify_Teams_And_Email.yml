@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify_teams_channel:
-    runs-on: sh-ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Send Notification on Teams Channel
@@ -34,7 +34,7 @@ jobs:
           }' $TEAMS_WEBHOOK_URL
           
   send_email:
-     runs-on: sh-ubuntu-latest
+     runs-on: ubuntu-latest
 
      steps:
        - name: Checkout code
