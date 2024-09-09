@@ -8,7 +8,7 @@ on:
 
 jobs:
   check_merge_conflict:
-    runs-on: sh-ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
