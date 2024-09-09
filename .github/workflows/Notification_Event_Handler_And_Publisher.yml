@@ -6,7 +6,7 @@ on:
 
 jobs:
   handle_triggered_payload:
-    runs-on: ubuntu-latest
+    runs-on: sh-ubuntu-latest
 
     steps:
       # Merge-Conflict Event Handlers
