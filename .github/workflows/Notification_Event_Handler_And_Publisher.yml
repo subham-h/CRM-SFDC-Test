@@ -125,7 +125,7 @@ jobs:
             -d '{"event_type":"notify_teams", "client_payload":{ "title" : "PR-Merge was successful!", "to" : "${{ github.event.client_payload.to }}", "text" : "Merge attempt of PR #${{ github.event.client_payload.prNum }} initiated by ${{ github.event.client_payload.userName }} to branch ${{ github.event.client_payload.to }} from ${{ github.event.client_payload.from }} was successful."}}'
 
       - name: Notify Teams on failed PR Merge
-        if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'error' && github.event.client_payload.to != 'main'}} #Should we use error or failure for this case.
+        if: ${{ github.event.action == 'PR-merge' && github.event.client_payload.type == 'error'}} #Should we use error or failure for this case.  && github.event.client_payload.to != 'main'
         run: |
           echo "event type name is : ${{github.event.action}}"
           curl -X POST \
